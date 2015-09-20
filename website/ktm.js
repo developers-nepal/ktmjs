@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var exphbs  = require('express-handlebars');
 var fs = require('fs');
+var handlebars = require('handlebars');
 var open = require('open');
 var path = require('path');
 
@@ -41,6 +42,11 @@ server.post('/saveevent', function(req, res) {
   }
 });
 
+server.get('/publish', function(req, res) {
+  _publish(episodes);
+  res.send('done');
+});
+
 server.get('/save', function(req, res) {
   res.render('save');
 });
@@ -58,3 +64,15 @@ server.listen(port, function() {
     }
   });
 });
+
+function _publish(episodes) {
+  episodes && episodes.forEach(function(episode) {
+    var hbsTemplate = fs.readFileSync(path.join(__dirname, 'template/index.hbs')).toString();
+    var template = handlebars.compile(hbsTemplate);
+    var htmlTemplate = template(episode);
+
+    fs.writeFileSync(path.join(__dirname, 'dist/' + episode.date.replace(/\s+/g, '_') + '.html'), htmlTemplate, 'utf8', function(err) {
+      if (err) throw err;
+    });
+  });
+}
