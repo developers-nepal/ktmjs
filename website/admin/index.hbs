@@ -6,6 +6,9 @@
 
   <body>
     <h1>Hello World</h1>
-    <a href="save.html">Save</a>
+    <a href="save">Save</a>
+    {{#each episodes}}
+      <p>{{date}},{{venue}}</p>
+    {{~/each}}
   </body>
 </html>
