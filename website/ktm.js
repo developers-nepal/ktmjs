@@ -31,6 +31,13 @@ server.post('/saveevent', function(req, res) {
   res.send('Got it!');
 });
 
+server.get('/deleteevent/:id', function(req, res) {
+  var id = req.params.id;
+
+  _deleteEpisode(id);
+  res.redirect('/');
+});
+
 server.get('/publish', function(req, res) {
   _publish(episodes);
   res.send('done');
@@ -67,12 +74,26 @@ function _publish(episodes) {
 }
 
 function _save(params) {
-  episodes.push({
-    "date": params.date,
-    "venue": params.venue
-  });
+  episodes.push(params);
 
   fs.writeFileSync(path.join(__dirname, 'db/Meetup.json'), JSON.stringify(episodes), 'utf8', function(err) {
     if (err) throw err;
   });
+}
+
+function _deleteEpisode(episode) {
+  var index;
+  episodes.forEach(function(e, idx) {
+    if (e.episode === episode) {
+      index = idx;
+    }
+  });
+
+  if (index >= 0) {
+    episodes.splice(index, 1);
+
+    fs.writeFileSync(path.join(__dirname, 'db/Meetup.json'), JSON.stringify(episodes), 'utf8', function(err) {
+      if (err) throw err;
+    });
+  }
 }

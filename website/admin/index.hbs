@@ -10,7 +10,8 @@
     <a href="publish">Publish</a>
 
     {{#each episodes}}
-      <p>{{date}},{{venue}}</p>
+      <p>{{episode}},{{date}}<a href="deleteEvent/{{episode}}">X</a></p>
     {{~/each}}
+
   </body>
 </html>
