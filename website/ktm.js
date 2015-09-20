@@ -25,21 +25,10 @@ server.set('view engine', '.hbs');
 
 /* routes */
 server.post('/saveevent', function(req, res) {
-  console.log('params', req.body);
   var params = req.body;
 
-  if (params.date && params.venue) {
-    episodes.push({
-      "date": params.date,
-      "venue": params.venue
-    });
-
-    fs.writeFileSync(path.join(__dirname, 'db/Meetup.json'), JSON.stringify(episodes), 'utf8', function(err) {
-      if (err) throw err;
-    });
-
-    res.send('Got it!');
-  }
+  _save(params);
+  res.send('Got it!');
 });
 
 server.get('/publish', function(req, res) {
@@ -74,5 +63,16 @@ function _publish(episodes) {
     fs.writeFileSync(path.join(__dirname, 'dist/' + episode.date.replace(/\s+/g, '_') + '.html'), htmlTemplate, 'utf8', function(err) {
       if (err) throw err;
     });
+  });
+}
+
+function _save(params) {
+  episodes.push({
+    "date": params.date,
+    "venue": params.venue
+  });
+
+  fs.writeFileSync(path.join(__dirname, 'db/Meetup.json'), JSON.stringify(episodes), 'utf8', function(err) {
+    if (err) throw err;
   });
 }

@@ -6,8 +6,26 @@
 
   <body>
     <form action="saveevent" method="post">
+      <input type="text" placeholder="episode" name="episode"/>
       <input type="text" placeholder="date" name="date"/>
-      <input type="text" placeholder="venue" name="venue"/>
+      <h4>Venue</h4>
+      <input type="text" placeholder="Organisation" name="venue[organisation]"/>
+      <input type="text" placeholder="Address Line 1" name="venue[addr_line1]"/>
+      <input type="text" placeholder="Address Line 2" name="venue[addr_line2]"/>
+
+      <h4>Sessions</h4>
+      <input type="text" placeholder="title" name="sessions[0][title]"/>
+      <input type="text" placeholder="time"  name="sessions[0][time]"/>
+      <input type="text" placeholder="desc"  name="sessions[0][desc]"/>
+
+      <h4>Sponsors</h4>
+      <input type="text" placeholder="title" name="sponsors[0][name]"/>
+      <input type="text" placeholder="time"  name="sponsors[0][img_src]"/>
+
+      <h4>Supporters</h4>
+      <input type="text" placeholder="title" name="supporters[0][name]"/>
+      <input type="text" placeholder="time"  name="supporters[0][img_src]"/>
+
       <input type="submit" value="Save" />
     </form>
   </body>
