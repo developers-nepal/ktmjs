@@ -5,28 +5,83 @@
   </head>
 
   <body>
-    <form action="saveevent" method="post">
-      <input type="text" placeholder="episode" name="episode"/>
-      <input type="text" placeholder="date" name="date"/>
+    <form action="save_event" method="post">
+      <input type="text" placeholder="episode" name="episode" {{value "episodes"}} />
+      <input type="text" placeholder="date" name="date" {{value "episodes"}} />
       <h4>Venue</h4>
-      <input type="text" placeholder="Organisation" name="venue[organisation]"/>
-      <input type="text" placeholder="Address Line 1" name="venue[addr_line1]"/>
-      <input type="text" placeholder="Address Line 2" name="venue[addr_line2]"/>
+      <input type="text" placeholder="Organisation" name="venue[organisation]" {{value "venue" "organisation"}} />
+      <input type="text" placeholder="Address Line 1" name="venue[addr_line1]" {{value "venue" "addr_line1"}} />
+      <input type="text" placeholder="Address Line 2" name="venue[addr_line2]" {{value "venue" "addr_line2"}} />
 
       <h4>Sessions</h4>
-      <input type="text" placeholder="title" name="sessions[0][title]"/>
-      <input type="text" placeholder="time"  name="sessions[0][time]"/>
-      <input type="text" placeholder="desc"  name="sessions[0][desc]"/>
+      <div id="sessions">
+        {{{input "sessions"}}}
+      </div>
+      <button onclick="return addSession(event);">Add Session</button>
 
       <h4>Sponsors</h4>
-      <input type="text" placeholder="title" name="sponsors[0][name]"/>
-      <input type="text" placeholder="time"  name="sponsors[0][img_src]"/>
+      <div id="sponsors">
+        {{{input "sponsors"}}}
+      </div>
+      <button onclick="return addSponsors(event);">Add Sponsors</button>
 
       <h4>Supporters</h4>
-      <input type="text" placeholder="title" name="supporters[0][name]"/>
-      <input type="text" placeholder="time"  name="supporters[0][img_src]"/>
+      <div id="supporters">
+        {{{input "supporters"}}}
+      </div>
+      <button onclick="return addSupporters(event);">Add Supporters</button>
 
       <input type="submit" value="Save" />
+
+      <script>
+        window.Index = {
+          Session: 0,
+          Sponsor: 0,
+          Supporter: 0
+        };
+
+        function getNode(name, type, placeholder) {
+          var input = document.createElement('input');
+          input.name = name;
+          input.type = type;
+          input.placeholder = placeholder;
+          return input;
+        }
+
+        function addSession(e) {
+          e.stopPropagation();
+          e.preventDefault();
+
+          ++window.Index.Session;
+
+          var sessionsElm = document.getElementById('sessions');
+          sessions.appendChild(getNode("sessions[" + window.Index.Session + "][title]", "title", "text"));
+          sessions.appendChild(getNode("sessions[" + window.Index.Session + "][time]", "time", "text"));
+          sessions.appendChild(getNode("sessions[" + window.Index.Session + "][desc]", "desc", "text"));
+        }
+
+        function addSponsors(e) {
+          e.stopPropagation();
+          e.preventDefault();
+
+          ++window.Index.Sponsor;
+
+          var sponsorsElm = document.getElementById('sponsors');
+          sponsors.appendChild(getNode("sponsors[" + window.Index.Sponsor + "][name]", "name", "text"));
+          sponsors.appendChild(getNode("sponsors[" + window.Index.Sponsor + "][img_src]", "img_src", "text"));
+        }
+
+        function addSupporters(e) {
+          e.stopPropagation();
+          e.preventDefault();
+
+          ++window.Index.Supporter;
+
+          var sponsorsElm = document.getElementById('supporters');
+          supporters.appendChild(getNode("supporters[" + window.Index.Supporter + "][name]", "name", "text"));
+          supporters.appendChild(getNode("supporters[" + window.Index.Supporter + "][img_src]", "img_src", "text"));
+        }
+      </script>
     </form>
   </body>
 </html>
