@@ -44,6 +44,9 @@ server.get('/update/:id', function(req, res) {
 
   if (index >= 0) {
     res.render('save', {
+      'episodes': episodes[index].episodes,
+      'date': episodes[index].episodes,
+      'venue': episodes[index].episodes,
       'sessions': episodes[index].sessions,
       'sponsors': episodes[index].sponsors,
       'supporters': episodes[index].supporters,
