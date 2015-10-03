@@ -1,0 +1,43 @@
+.logo {
+  width: 125px;
+}
+
+.Panel  {
+
+  &__Navigation {
+    width: 125px;
+    height: auto;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+  }
+
+  &__Meetup {
+    width: 337px;
+    height: 100%;
+    padding: 160px 0 0 10%;
+    position: fixed;
+    top: 0px;
+    left: 130px;
+    bottom: 0px;
+  }
+
+  &__Schedule {
+    width: 480px;
+    height: auto;
+    margin: 0 0 0 57%;
+    padding: 160px 0 0 0;
+    box-sizing: border-box;
+    overflow: auto;
+  }
+
+  &__SponsorsAndSupporters  {
+    margin: 100px 0;
+  }
+}
+
+.chandra {
+  width: 38px;
+  margin-bottom: 115px;
+}

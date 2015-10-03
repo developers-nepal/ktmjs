@@ -1,0 +1,51 @@
+@import 'base/typography';
+@import 'base/pallete';
+
+.Meetup {
+  text-align: right;
+
+  &__Name {
+    @include font('lato', 'light', 25px);
+    margin: 0 0 5px 0;
+  }
+
+  &__Episode  {
+    @include font('lato', 'bold', 20px);
+    letter-spacing: 0.8px;
+  }
+
+  &__Date {
+    @include font('lato', 'extra-bold', 45px, 54px);
+    margin-top: 40px;
+    display: block;
+  }
+
+  &__Time {
+    margin-top: 10px;
+    padding: 8px 16px;
+    display: inline-table;
+    @include font('lato', 'bold', 25px, 30px);
+    letter-spacing: 0.86px;
+    @include color('pure-black', 'bg');
+    @include color('pure-white');
+
+    &--thin {
+      font-weight: 300;
+    }
+  }
+
+  &__Venue  {
+    margin-top: 20px;
+    @include font('lato', 'bold', 20px, 29px);
+  }
+
+  &__Address  {
+    @include color('igray');
+    @include font('lato', 'regular', 16px, 20px);
+  }
+
+  &__Ornament {
+    margin-top: 40px;
+    width: 80px;
+  }
+}
