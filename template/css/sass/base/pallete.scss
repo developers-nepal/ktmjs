@@ -1,0 +1,24 @@
+/* Color Pallete */
+
+$pallete : (
+  pure-white: #FFFFFF,
+  igray: #808080,
+  nepal-red: #D0091E,
+  pure-black: #000000
+);
+
+/* Pallete helper methods.*/
+@mixin color($color, $type : 'color', $imp: false, $opacity : 1)  {
+  $color : map-get($pallete, $color);
+
+  @if $opacity != 1 { $color : rgba($color, $opacity);}
+  @if $imp == true { $color: $color !important; }
+
+  @if $type == 'bg' {
+    background-color: $color;
+  } @else if $type == 'border'  {
+    border-color: $color;
+  } @else {
+    color : $color;
+  }
+}

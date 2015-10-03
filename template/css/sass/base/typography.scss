@@ -1,0 +1,79 @@
+/* Fonts Register */
+$default: (
+  'font-size': 16px,
+  'line-height': 1.4
+);
+
+$fonts : (
+  'georgia': 'georgia',
+  'lato' : 'Lato'
+);
+
+$typesets : (
+  'georgia': (
+    'regular': 400
+  ),
+
+  'lato' : (
+    'light' : 300,
+    'regular' : 400,
+    'bold' : 700,
+    'extra-bold' : 900
+  )
+);
+
+
+
+/* Typography Helpers */
+@mixin get-font-weight($font, $type)  {
+  @each $name,$typeset in $typesets {
+    @if $name == $font {
+      font-weight: map-get($typeset, $type); 
+    }
+  }
+}
+
+@mixin font-reset ($font-size, $line-height) {
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+@mixin font($name, $type : 'regular', $size : 'null', $line-height : 'null')  {
+  font-family : map-get($fonts, $name);
+  @include get-font-weight($name, $type); 
+  
+  @if $size != 'null' { font-size: $size; }
+  @if $line-height != 'null' { line-height: $line-height; }
+}
+
+/* Reset Default Typeset. */
+body  { 
+  @include font-reset(
+    map-get($default, 'font-size'), 
+    map-get($default, 'line-height')
+  ); 
+}
+
+h1  { @include font-reset(2.6em, 1.2); }
+h2  { @include font-reset(2.2em, 1.4); }
+h3  { @include font-reset(1.6em, 1.4); }
+h4  { @include font-reset(1.2em, 1.4); }
+h5  {}
+h6  {}
+
+p   { @include font-reset(1em, 1.4); }
+
+a, a:hover, a:visited, a:link, a:active { text-decoration: none; }
+
+
+/* Typography Helpers */
+$projectFont: 'lato';
+
+@mixin h1 {}
+@mixin h2 { @include font('lato', 'semibold', 1.6em, 1.4); }
+@mixin h3 { @include font('lato', 'bold', 1.25em, 1.4); }
+@mixin h4 { @include font('lato', 'semibold', 1em, 1.4); }
+@mixin h5 { @include font('lato', 'extra-bold', 0.9em, 1.4);}
+@mixin h6 {}
+
+@mixin p  { @include font('lato', 'regular', 1em, 1.4); }

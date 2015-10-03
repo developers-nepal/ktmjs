@@ -1,0 +1,37 @@
+@import 'base/typography';
+@import 'base/pallete';
+
+.SponsorsAndSupporters  {
+
+  &__Heading  {
+    @include font('lato', 'bold', 18px, 22px);
+    float: left;
+  }
+
+  &__Splitter {
+    margin: 30px 0;
+    border: 0;
+    border-bottom: 3px solid;
+    @include color('pure-black', 'border');
+  }
+}
+
+.Sponsors {
+    margin-left: 150px;
+}
+
+.Sponsor  {
+  &__Logo {
+    width: 125px;
+  }
+}
+
+.Supporters {
+    margin-left: 150px;
+}
+
+.Supporter {
+  &__Logo {
+    width: 125px;
+  }
+}

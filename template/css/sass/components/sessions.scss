@@ -1,0 +1,45 @@
+@import 'base/typography';
+@import 'base/pallete';
+
+.Sessions {}
+.Sessions .Session {
+  margin-top: 80px;
+
+  &:first-child {
+    margin: 0;
+  }
+}
+
+.Session  {
+
+  &__Number {
+    @include font('lato', 'bold', 16px, 19px);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  &__Splitter {
+    border: 0;
+    border-bottom: 3px solid;
+    @include color('pure-black', 'border');
+  }
+
+  &__Title  {
+    margin-top: 20px;
+    @include font('lato', 'bold', 25px, 30px);
+  }
+
+  &__Time {
+    margin-top: 5px;
+    @include font('lato', 'regular', 18px, 22px);
+  }
+
+  &__Description  {
+    margin-top: 20px;
+    @include font('georgia', 'regular', 16px, 25px);
+  }
+
+  &__Speaker  {
+    margin-top: 25px;
+  }
+}
