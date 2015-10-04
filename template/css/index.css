@@ -70,11 +70,23 @@ body {
     margin-bottom: 80px;
     padding: 0 10px 0 0;
     box-sizing: border-box; } }
+@media only screen and (min-width: 480px) and (orientation: portrait) {
+  .Panel__Meetup {
+    width: 100%;
+    height: auto;
+    margin-bottom: 80px;
+    padding: 0 60px 0 0;
+    box-sizing: border-box; } }
 @media only screen and (min-width: 320px) {
   .Panel__Schedule {
     box-sizing: border-box;
     overflow: auto;
     padding: 0 10px; } }
+@media only screen and (min-width: 480px) and (orientation: portrait) {
+  .Panel__Schedule {
+    box-sizing: border-box;
+    overflow: auto;
+    padding: 0 60px; } }
 .Panel__SponsorsAndSupporters {
   margin: 100px 0; }
 
