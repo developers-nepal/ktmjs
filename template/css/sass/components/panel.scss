@@ -25,6 +25,10 @@ body {
       height: auto;
       margin-bottom: 60px;
     }
+
+    @include respond-to('tablet-l') {
+      margin-bottom: 35px;
+    }
   }
 
   &__Meetup {
@@ -51,6 +55,32 @@ body {
       padding: 0 60px 0 0;
       box-sizing: border-box;
     }
+
+    @include respond-to('large-phone-l') {
+      width: 100%;
+      height: auto;
+      margin-bottom: 80px;
+      padding: 0 80px 0 0;
+      box-sizing: border-box;
+    }
+
+    @include respond-to('tablet-p') {
+      width: 100%;
+      height: auto;
+      margin-bottom: 80px;
+      padding: 0 100px 0 0;
+      box-sizing: border-box;
+    }
+
+    @include respond-to('tablet-l') {
+      height: auto;
+      box-sizing: border-box;
+      width: 42%;
+      display: inline-block;
+      float: left;
+      margin: 20px 46px 20px 0px;
+      padding: 0;
+    }
   }
 
   &__Schedule {
@@ -71,6 +101,28 @@ body {
       box-sizing: border-box;
       overflow: auto;
       padding: 0 60px;
+    }
+
+    @include respond-to('large-phone-l') {
+      box-sizing: border-box;
+      overflow: auto;
+      padding: 0 80px;
+    }
+
+    @include respond-to('tablet-p') {
+      box-sizing: border-box;
+      overflow: auto;
+      padding: 0 100px;
+    }
+
+    @include respond-to('tablet-l') {
+      box-sizing: border-box;
+      overflow: auto;
+      width: 42%;
+      display: inline-block;
+      float: left;
+      margin: 20px 0px 20px 46px;
+      padding: 0;
     }
   }
 

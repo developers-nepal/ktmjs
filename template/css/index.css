@@ -63,6 +63,9 @@ body {
     width: 100%;
     height: auto;
     margin-bottom: 60px; } }
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .Panel__Navigation {
+    margin-bottom: 35px; } }
 @media only screen and (min-width: 320px) {
   .Panel__Meetup {
     width: 100%;
@@ -77,6 +80,29 @@ body {
     margin-bottom: 80px;
     padding: 0 60px 0 0;
     box-sizing: border-box; } }
+@media only screen and (min-width: 600px) and (orientation: landscape) {
+  .Panel__Meetup {
+    width: 100%;
+    height: auto;
+    margin-bottom: 80px;
+    padding: 0 80px 0 0;
+    box-sizing: border-box; } }
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .Panel__Meetup {
+    width: 100%;
+    height: auto;
+    margin-bottom: 80px;
+    padding: 0 100px 0 0;
+    box-sizing: border-box; } }
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .Panel__Meetup {
+    height: auto;
+    box-sizing: border-box;
+    width: 42%;
+    display: inline-block;
+    float: left;
+    margin: 20px 46px 20px 0px;
+    padding: 0; } }
 @media only screen and (min-width: 320px) {
   .Panel__Schedule {
     box-sizing: border-box;
@@ -87,6 +113,25 @@ body {
     box-sizing: border-box;
     overflow: auto;
     padding: 0 60px; } }
+@media only screen and (min-width: 600px) and (orientation: landscape) {
+  .Panel__Schedule {
+    box-sizing: border-box;
+    overflow: auto;
+    padding: 0 80px; } }
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .Panel__Schedule {
+    box-sizing: border-box;
+    overflow: auto;
+    padding: 0 100px; } }
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .Panel__Schedule {
+    box-sizing: border-box;
+    overflow: auto;
+    width: 42%;
+    display: inline-block;
+    float: left;
+    margin: 20px 0px 20px 46px;
+    padding: 0; } }
 .Panel__SponsorsAndSupporters {
   margin: 100px 0; }
 
