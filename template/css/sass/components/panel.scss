@@ -1,35 +1,63 @@
+@import 'base/layout';
+
 .logo {
   width: 125px;
+}
+
+body {
+  @include respond-to('small-phone-lp') {
+    font-size: 11px !important;
+  }
 }
 
 .Panel  {
 
   &__Navigation {
-    width: 125px;
-    height: auto;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
+    // width: 125px;
+    // height: auto;
+    // position: fixed;
+    // top: 0px;
+    // left: 0px;
+    // bottom: 0px;
+
+    @include respond-to('small-phone-lp') {
+      width: 100%;
+      height: auto;
+      margin-bottom: 60px;
+    }
   }
 
   &__Meetup {
-    width: 337px;
-    height: 100%;
-    padding: 160px 0 0 10%;
-    position: fixed;
-    top: 0px;
-    left: 130px;
-    bottom: 0px;
+    // width: 337px;
+    // height: 100%;
+    // padding: 160px 0 0 10%;
+    // position: fixed;
+    // top: 0px;
+    // left: 130px;
+    // bottom: 0px;
+
+    @include respond-to('small-phone-lp') {
+      width: 100%;
+      height: auto;
+      margin-bottom: 80px;
+      padding: 0 10px 0 0;
+      box-sizing: border-box;
+    }
   }
 
   &__Schedule {
-    width: 480px;
-    height: auto;
-    margin: 0 0 0 57%;
-    padding: 160px 0 0 0;
-    box-sizing: border-box;
-    overflow: auto;
+    // width: 480px;
+    // height: auto;
+    // margin: 0 0 0 57%;
+    // padding: 160px 0 0 0;
+    // box-sizing: border-box;
+    // overflow: auto;
+
+    @include respond-to('small-phone-lp') {
+      box-sizing: border-box;
+      overflow: auto;
+      padding: 0 10px;
+    }
   }
 
   &__SponsorsAndSupporters  {
