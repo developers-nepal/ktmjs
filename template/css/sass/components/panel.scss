@@ -39,7 +39,7 @@ body {
       width: 100%;
       height: auto;
       margin-bottom: 80px;
-      padding: 0 10px 0 0;
+      padding: 0 25px 0 0;
       box-sizing: border-box;
     }
 
@@ -97,7 +97,7 @@ body {
     @include respond-to('small-phone-lp') {
       box-sizing: border-box;
       overflow: auto;
-      padding: 0 10px;
+      padding: 0 25px;
     }
 
     @include respond-to('large-phone-p') {
