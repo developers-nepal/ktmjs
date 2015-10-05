@@ -66,6 +66,15 @@ body {
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .Panel__Navigation {
     margin-bottom: 35px; } }
+@media only screen and (min-width: 992px) {
+  .Panel__Navigation {
+    width: 125px;
+    height: auto;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    margin: 0px; } }
 @media only screen and (min-width: 320px) {
   .Panel__Meetup {
     width: 100%;
@@ -103,6 +112,20 @@ body {
     float: left;
     margin: 20px 46px 20px 0px;
     padding: 0; } }
+@media only screen and (min-width: 992px) {
+  .Panel__Meetup {
+    width: 337px;
+    height: 100%;
+    padding: 160px 0 0 10%;
+    position: fixed;
+    top: 0px;
+    left: 130px;
+    bottom: 0px;
+    /* overrides */
+    margin: 0px;
+    float: none;
+    display: block;
+    box-sizing: initial; } }
 @media only screen and (min-width: 320px) {
   .Panel__Schedule {
     box-sizing: border-box;
@@ -132,6 +155,14 @@ body {
     float: left;
     margin: 20px 0px 20px 46px;
     padding: 0; } }
+@media only screen and (min-width: 992px) {
+  .Panel__Schedule {
+    width: 480px;
+    height: auto;
+    margin: 0 0 0 57%;
+    padding: 160px 0 0 0;
+    box-sizing: border-box;
+    overflow: auto; } }
 .Panel__SponsorsAndSupporters {
   margin: 100px 0; }
 
