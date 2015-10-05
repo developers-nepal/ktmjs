@@ -53,24 +53,19 @@ $media-register : (
 
 );
 
-@mixin respond-to($media) {
-  $media-query : map-get($media-register, $media);
+@function generate-content-media-query($breakpoint) {
+  @return 'only screen
+           and (min-width : ' + $breakpoint + ')';
+}
+
+@mixin respond-to($media, $breakpoint : '0px') {
+  $media-query : '';
+
+  @if $media == 'content' {
+    $media-query : generate-content-media-query($breakpoint);
+  } @else {
+    $media-query : map-get($media-register, $media);
+  }
+
   @media #{$media-query} { @content; }
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.gap  {
-  width:100%;
-  height: 10px;
-  margin: 0;
-  padding: 0;
-  display: block;
 }

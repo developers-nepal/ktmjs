@@ -1,35 +1,141 @@
+@import 'base/viewport';
+
 .logo {
   width: 125px;
+}
+
+body {
+  @include respond-to('small-phone-lp') {
+    font-size: 11px !important;
+  }
 }
 
 .Panel  {
 
   &__Navigation {
-    width: 125px;
-    height: auto;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
+    @include respond-to('small-phone-lp') {
+      width: 100%;
+      height: auto;
+      margin-bottom: 60px;
+    }
+
+    @include respond-to('tablet-l') {
+      margin-bottom: 35px;
+    }
+
+    @include respond-to('medium-device') {
+      width: 125px;
+      height: auto;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      margin: 0px;
+    }
   }
 
   &__Meetup {
-    width: 337px;
-    height: 100%;
-    padding: 160px 0 0 10%;
-    position: fixed;
-    top: 0px;
-    left: 130px;
-    bottom: 0px;
+    @include respond-to('small-phone-lp') {
+      width: 100%;
+      height: auto;
+      margin-bottom: 80px;
+      padding: 0 25px 0 0;
+      box-sizing: border-box;
+    }
+
+    @include respond-to('large-phone-p') {
+      width: 100%;
+      height: auto;
+      margin-bottom: 80px;
+      padding: 0 60px 0 0;
+      box-sizing: border-box;
+    }
+
+    @include respond-to('large-phone-l') {
+      width: 100%;
+      height: auto;
+      margin-bottom: 80px;
+      padding: 0 80px 0 0;
+      box-sizing: border-box;
+    }
+
+    @include respond-to('tablet-p') {
+      width: 100%;
+      height: auto;
+      margin-bottom: 80px;
+      padding: 0 100px 0 0;
+      box-sizing: border-box;
+    }
+
+    @include respond-to('tablet-l') {
+      height: auto;
+      box-sizing: border-box;
+      width: 42%;
+      display: inline-block;
+      float: left;
+      margin: 20px 46px 20px 0px;
+      padding: 0;
+    }
+
+    @include respond-to('medium-device') {
+      width: 337px;
+      height: 100%;
+      padding: 160px 0 0 10%;
+      position: fixed;
+      top: 0px;
+      left: 130px;
+      bottom: 0px;
+      /* overrides */
+      margin: 0px;
+      float: none;
+      display: block;
+      box-sizing: initial;
+    }
   }
 
   &__Schedule {
-    width: 480px;
-    height: auto;
-    margin: 0 0 0 57%;
-    padding: 160px 0 0 0;
-    box-sizing: border-box;
-    overflow: auto;
+    @include respond-to('small-phone-lp') {
+      box-sizing: border-box;
+      overflow: auto;
+      padding: 0 25px;
+    }
+
+    @include respond-to('large-phone-p') {
+      box-sizing: border-box;
+      overflow: auto;
+      padding: 0 60px;
+    }
+
+    @include respond-to('large-phone-l') {
+      box-sizing: border-box;
+      overflow: auto;
+      padding: 0 80px;
+    }
+
+    @include respond-to('tablet-p') {
+      box-sizing: border-box;
+      overflow: auto;
+      padding: 0 100px;
+    }
+
+    @include respond-to('tablet-l') {
+      box-sizing: border-box;
+      overflow: auto;
+      width: 42%;
+      display: inline-block;
+      float: left;
+      margin: 20px 0px 20px 46px;
+      padding: 0;
+    }
+
+    @include respond-to('medium-device') {
+      width: 480px;
+      height: auto;
+      margin: 0 0 0 57%;
+      padding: 160px 0 0 0;
+      box-sizing: border-box;
+      overflow: auto;
+    }
   }
 
   &__SponsorsAndSupporters  {
