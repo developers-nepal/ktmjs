@@ -91,12 +91,50 @@ server.get('/', function(req, res) {
   res.render('index', {"episodes": episodes});
 });
 
-var storage = multer.memoryStorage();
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    console.log('req.body', req.body);
+    cb(null, './assets/admin/images/companies');
+  },
+  filename: function (req, file, cb) {
+    console.log('file', file.originalname);
+    var filename = file.originalname;
+    cb(null, file.fieldname + '-' + Date.now() + '.' + filename.substr(filename.lastIndexOf('.')+1));
+  }
+});
+
 var upload = multer({ storage: storage });
+var Datastore = require('nedb');
+var db = {};
+db.companies = new Datastore({ filename: './db/companies.db', autoload: true});
+
+server.get('/upload', function(req, res) {
+  db.companies.find({}, function (err, docs) {
+    res.send(docs);
+  });
+});
+
 server.post('/upload', upload.single('image'), function(req, res) {
   console.log(req.body) // form fields
   console.log(req.file) // form files
-  res.status(204).end();
+  //var url= 'https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/images/companies/';
+  var params = {
+    'file': {
+      'path': req.file.path,
+      'filename': req.file.filename,
+      'mimetype': req.file.mimetype,
+      'size': req.file.size
+    },
+    'info': {
+      'title': req.body.title,
+      'desc': req.body.desc,
+      'url': req.body.url
+    }
+  };
+
+  db.companies.insert(params, function(err, NewDoc) {
+    res.status(204).end();
+  });
 });
 
 server.listen(port, function() {

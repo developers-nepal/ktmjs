@@ -1,4 +1,9 @@
 .logo { width: 125px; }
+.image--thumbnail {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+}
 
 .Navigation {
   list-style: none;
@@ -15,7 +20,7 @@
 }
 
 .Panel__Timeline {
-  width: 337px;
+  width: auto;
   height: 100%;
   padding: 160px 0 0 10%;
   position: fixed;

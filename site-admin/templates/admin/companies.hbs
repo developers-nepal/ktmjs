@@ -16,16 +16,38 @@
     </div>
 
     <div class="Panel__Timeline">
-      <div>
+      <div class="Company__Save">
         <h3>Add a company</h3>
         <form action="/upload" method="POST" enctype="multipart/form-data">
-          <input type="text" name="title" />
+          <input type="text" name="title" placeholder="Name"/>
+          <input type="text" name="desc" placeholder="Description"/>
+          <input type="text" name="url" placeholder="Company Url"/>
           <input type="file" name="image" />
           <button type="submit" value="Upload">Upload File</button>
         </form>
       </div>
-      <div>
+      <div class="Company__List">
+        <h3>Companies</h3>
       </div>
     </div>
+    <script type="text/javascript">
+      var companyListElm = document.getElementsByClassName('Company__List')[0];
+
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+          console.log(xmlHttp.responseText, typeof xmlHttp.responseText);
+          var response = JSON.parse(xmlHttp.responseText);
+          response.forEach(function(i) {
+            var img =  document.createElement('img');
+            img.setAttribute('class', 'image--thumbnail');
+            img.src = 'http://localhost:3000/' + i.file.path.replace('assets/', '');
+            companyListElm.appendChild(img);
+          });
+        }
+      }
+      xmlHttp.open("GET", 'http://localhost:3000/upload', true); // true for asynchronous
+      xmlHttp.send(null);
+    </script>
   </body>
 </html>
