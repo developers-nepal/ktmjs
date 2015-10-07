@@ -16,23 +16,24 @@
     </div>
 
     <div class="Panel__Timeline">
-      <div class="Company__Save">
-        <h3>Add a company</h3>
+      <div class="People__Save">
+        <h3>Add People Profile</h3>
         <form action="/upload" method="POST" enctype="multipart/form-data">
-          <input type="text" name="title" placeholder="Name"/>
+          <input type="text" name="name" placeholder="Name"/>
           <input type="text" name="desc" placeholder="Description"/>
-          <input type="text" name="url" placeholder="Company Url"/>
-          <input type="hidden" name="for" value="companies" />
+          <input type="text" name="company" placeholder="Company"/>
+          <input type="text" name="designation" placeholder="Designation"/>
+          <input type="hidden" name="for" value="people" />
           <input type="file" name="image" />
           <button type="submit" value="Upload">Upload File</button>
         </form>
       </div>
-      <div class="Company__List">
+      <div class="People__List">
         <h3>Companies</h3>
       </div>
     </div>
     <script type="text/javascript">
-      var companyListElm = document.getElementsByClassName('Company__List')[0];
+      var companyListElm = document.getElementsByClassName('People__List')[0];
 
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.onreadystatechange = function() {
@@ -47,7 +48,7 @@
           });
         }
       }
-      xmlHttp.open("GET", 'http://localhost:3000/upload?for=companies', true); // true for asynchronous
+      xmlHttp.open("GET", 'http://localhost:3000/upload?for=people', true);
       xmlHttp.send(null);
     </script>
   </body>

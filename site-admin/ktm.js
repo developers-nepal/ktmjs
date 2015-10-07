@@ -87,17 +87,27 @@ server.get('/companies', function(req, res) {
   res.render('companies', {});
 });
 
+server.get('/people', function(req, res) {
+  res.render('people', {});
+});
+
 server.get('/', function(req, res) {
   res.render('index', {"episodes": episodes});
 });
 
+var _path = {
+  'companies': './assets/admin/images/companies',
+  'people': './assets/admin/images/people'
+};
+
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    console.log('req.body', req.body);
-    cb(null, './assets/admin/images/companies');
+    console.log('req.body', _path[req.body.for]);
+    if (req.body.for) {
+      cb(null, _path[req.body.for]);
+    }
   },
   filename: function (req, file, cb) {
-    console.log('file', file.originalname);
     var filename = file.originalname;
     cb(null, file.fieldname + '-' + Date.now() + '.' + filename.substr(filename.lastIndexOf('.')+1));
   }
@@ -107,9 +117,11 @@ var upload = multer({ storage: storage });
 var Datastore = require('nedb');
 var db = {};
 db.companies = new Datastore({ filename: './db/companies.db', autoload: true});
+db.people = new Datastore({ filename: './db/people.db', autoload: true});
 
 server.get('/upload', function(req, res) {
-  db.companies.find({}, function (err, docs) {
+  console.log('req.query', req.query);
+  db[req.query.for].find({}, function (err, docs) {
     res.send(docs);
   });
 });
@@ -119,20 +131,11 @@ server.post('/upload', upload.single('image'), function(req, res) {
   console.log(req.file) // form files
   //var url= 'https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/images/companies/';
   var params = {
-    'file': {
-      'path': req.file.path,
-      'filename': req.file.filename,
-      'mimetype': req.file.mimetype,
-      'size': req.file.size
-    },
-    'info': {
-      'title': req.body.title,
-      'desc': req.body.desc,
-      'url': req.body.url
-    }
+    'file': req.file,
+    'info': req.body
   };
 
-  db.companies.insert(params, function(err, NewDoc) {
+  db[req.body.for].insert(params, function(err, NewDoc) {
     res.status(204).end();
   });
 });
