@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Admin | KtmJS</title>
+    <link rel="stylesheet" href="/admin/css/admin.css" type="text/css"/>
+  </head>
+
+  <body>
+    <div class="Panel__Navigation">
+      <img class="logo" src="/admin/images/logo.png" alt="Kathmandu JS User Group Logo" />
+      <ul class="Navigation">
+        <li><a href="/">Meetups</a></li>
+        <li><a href="/companies">Companies</a></li>
+        <li><a href="/people">People</a></li>
+      </ul>
+    </div>
+
+    <div class="Panel__Timeline">
+      <div>
+        <h3>Add a company</h3>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+          <input type="text" name="title" />
+          <input type="file" name="image" />
+          <button type="submit" value="Upload">Upload File</button>
+        </form>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

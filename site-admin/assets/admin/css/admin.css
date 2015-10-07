@@ -1,0 +1,25 @@
+.logo { width: 125px; }
+
+.Navigation {
+  list-style: none;
+}
+
+.Panel__Navigation {
+  width: 125px;
+  height: auto;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  margin: 0px; 
+}
+
+.Panel__Timeline {
+  width: 337px;
+  height: 100%;
+  padding: 160px 0 0 10%;
+  position: fixed;
+  left: 130px;
+  top: 0px;
+  bottom: 0px;
+}

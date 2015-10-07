@@ -6,6 +6,7 @@ var fs = require('fs');
 var handlebars = require('handlebars');
 var open = require('open');
 var path = require('path');
+var multer = require('multer');
 
 var episodes = require('./db/Meetup.json');
 
@@ -15,11 +16,10 @@ var server = express();
 var port = process.env.PORT || 3000;
 
 /* server configurations */
-server.use(bodyParser.json());       // to support JSON-encoded bodies
-server.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: true
-}));
-server.set('views', 'admin');
+server.use(bodyParser.urlencoded({ extended: true }));    // to support URL-encoded bodies
+server.use(bodyParser.json());                            // to support JSON-encoded bodies
+server.use(express.static(__dirname + '/assets'));
+server.set('views', 'templates/admin');
 /* handlebars as default engine */
 server.engine('.hbs', exphbs({extname: '.hbs'}));
 server.set('view engine', '.hbs');
@@ -82,8 +82,21 @@ server.get('/publish', function(req, res) {
   res.send('done');
 });
 
+
+server.get('/companies', function(req, res) {
+  res.render('companies', {});
+});
+
 server.get('/', function(req, res) {
   res.render('index', {"episodes": episodes});
+});
+
+var storage = multer.memoryStorage();
+var upload = multer({ storage: storage });
+server.post('/upload', upload.single('image'), function(req, res) {
+  console.log(req.body) // form fields
+  console.log(req.file) // form files
+  res.status(204).end();
 });
 
 server.listen(port, function() {
