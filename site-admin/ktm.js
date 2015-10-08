@@ -66,14 +66,27 @@ server.get('/delete_event/:id', function(req, res) {
 });
 
 server.get('/save', function(req, res) {
-  res.render('save', {
-    'sessions': [{'title': '', 'time': '', 'desc': ''}],
-    'sponsors': [{'name': '', 'img_src': ''}],
-    'supporters': [{'name': '', 'img_src': ''}],
-    'helpers': {
-      input: _InputNodesHelper,
-      value: _getValueAttribHelper
-    }
+  db.meetups.find({}, function (err, docs) {
+    var _meetups = docs;
+    console.log('docs', docs);
+    db.companies.find({}, function (err, docs) {
+      var _companies = docs;
+      db.people.find({}, function(err, docs) {
+        var _people = docs;
+
+        res.render('save', {
+          'sessions': [{'title': '', 'time': '', 'desc': ''}],
+          'episode': _meetups.length ? _meetups.length : 1,
+          'companies': _companies,
+          'people': _people,
+          'helpers': {
+            input: _InputNodesHelper,
+            dropdown: _DropdownMenuHelper,
+            value: _getValueAttribHelper
+          }
+        });
+      });
+    });
   });
 });
 
@@ -118,6 +131,7 @@ var Datastore = require('nedb');
 var db = {};
 db.companies = new Datastore({ filename: './db/companies.db', autoload: true});
 db.people = new Datastore({ filename: './db/people.db', autoload: true});
+db.meetups = new Datastore({ filename: './db/meetups.db', autoload: true});
 
 server.get('/upload', function(req, res) {
   console.log('req.query', req.query);
@@ -187,9 +201,31 @@ function _deleteEpisode(episode) {
   }
 }
 
+function _DropdownMenuHelper(type) {
+  function _getInputNodes(name, val) {
+    return '<option value=' + val + '>' + name + '</option>';
+  }
+
+  var elm = '<select id="' + type + '-dropdown" ' +' name="' + type + '">';
+
+  this[type].forEach(function(i) {
+    var name = i.info.title;
+    name = (type === 'people') ? i.info.name : name;
+    elm += _getInputNodes(name, i._id);
+  });
+
+  elm += "</select>";
+
+  return elm;
+}
+
 function _InputNodesHelper(type) {
   function _getInputNodes(field, name, value) {
     return '<input type="text" placeholder=' + field + ' name=' + name + (value ? ' value=' + value : '') + ' />';
+  }
+
+  if (!this[type]) {
+    return;
   }
 
   var elm = "";
