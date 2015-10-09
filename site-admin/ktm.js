@@ -28,61 +28,63 @@ server.set('view engine', '.hbs');
 server.post('/save_event', function(req, res) {
   var params = req.body;
 
-  _save(params);
-  res.send('Got it!');
+  /* TODO: ? */
+  delete req.body.people;
+  delete req.body.companies;
+
+  db.meetups.insert(params, function(err, NewDoc) {
+    res.redirect('/');
+  });
 });
 
-server.get('/update/:id', function(req, res) {
+server.get('/update/form/:id', function(req, res) {
   var id = req.params.id;
+  db.companies.find({}, function (err, docs) {
+    var _companies = docs;
+    db.people.find({}, function(err, docs) {
+      var _people = docs;
+      db.meetups.findOne({_id: id}, function (err, docs) {
+        docs.people = _people;
+        docs.companies = _companies;
+        docs.helpers = {
+          'dropdown': _DropdownMenuHelper
+        }
 
-  var index;
-  episodes.forEach(function(e, idx) {
-    if (e.episode === id) {
-      index = idx;
-    }
-  });
-
-  if (index >= 0) {
-    res.render('save', {
-      'episodes': episodes[index].episodes,
-      'date': episodes[index].episodes,
-      'venue': episodes[index].episodes,
-      'sessions': episodes[index].sessions,
-      'sponsors': episodes[index].sponsors,
-      'supporters': episodes[index].supporters,
-      'helpers': {
-        input: _InputNodesHelper,
-        value: _getValueAttribHelper
-      }
+        res.render('update', docs);
+      });
     });
-  }
+  });
+});
+
+server.post('/update/:id', function(req, res) {
+  var params = req.body;
+  db.meetups.update({ _id: req.params.id }, req.body, {}, function (err, numReplaced) {
+    res.redirect('/');
+  });
 });
 
 server.get('/delete_event/:id', function(req, res) {
   var id = req.params.id;
 
-  _deleteEpisode(id);
-  res.redirect('/');
+  db.meetups.remove({ _id: id }, {}, function (err, numRemoved) {
+    res.redirect('/');
+  });
 });
 
 server.get('/save', function(req, res) {
   db.meetups.find({}, function (err, docs) {
     var _meetups = docs;
-    console.log('docs', docs);
     db.companies.find({}, function (err, docs) {
       var _companies = docs;
       db.people.find({}, function(err, docs) {
         var _people = docs;
 
         res.render('save', {
-          'sessions': [{'title': '', 'time': '', 'desc': ''}],
-          'episode': _meetups.length ? _meetups.length : 1,
+          'episode': _meetups.length ? (_meetups.length + 1) : 1,
           'companies': _companies,
           'people': _people,
           'helpers': {
-            input: _InputNodesHelper,
-            dropdown: _DropdownMenuHelper,
-            value: _getValueAttribHelper
+            dropdown: _DropdownMenuHelper
           }
         });
       });
@@ -105,7 +107,9 @@ server.get('/people', function(req, res) {
 });
 
 server.get('/', function(req, res) {
-  res.render('index', {"episodes": episodes});
+  db.meetups.find({}, function (err, docs) {
+    res.render('index', {"episodes": docs});
+  });
 });
 
 var _path = {
@@ -115,7 +119,6 @@ var _path = {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    console.log('req.body', _path[req.body.for]);
     if (req.body.for) {
       cb(null, _path[req.body.for]);
     }
@@ -134,16 +137,12 @@ db.people = new Datastore({ filename: './db/people.db', autoload: true});
 db.meetups = new Datastore({ filename: './db/meetups.db', autoload: true});
 
 server.get('/upload', function(req, res) {
-  console.log('req.query', req.query);
   db[req.query.for].find({}, function (err, docs) {
     res.send(docs);
   });
 });
 
 server.post('/upload', upload.single('image'), function(req, res) {
-  console.log(req.body) // form fields
-  console.log(req.file) // form files
-  //var url= 'https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/images/companies/';
   var params = {
     'file': req.file,
     'info': req.body
@@ -176,31 +175,6 @@ function _publish(episodes) {
   });
 }
 
-function _save(params) {
-  episodes.push(params);
-
-  fs.writeFileSync(path.join(__dirname, 'db/Meetup.json'), JSON.stringify(episodes), 'utf8', function(err) {
-    if (err) throw err;
-  });
-}
-
-function _deleteEpisode(episode) {
-  var index;
-  episodes.forEach(function(e, idx) {
-    if (e.episode === episode) {
-      index = idx;
-    }
-  });
-
-  if (index >= 0) {
-    episodes.splice(index, 1);
-
-    fs.writeFileSync(path.join(__dirname, 'db/Meetup.json'), JSON.stringify(episodes), 'utf8', function(err) {
-      if (err) throw err;
-    });
-  }
-}
-
 function _DropdownMenuHelper(type) {
   function _getInputNodes(name, val) {
     return '<option value=' + val + '>' + name + '</option>';
@@ -217,34 +191,4 @@ function _DropdownMenuHelper(type) {
   elm += "</select>";
 
   return elm;
-}
-
-function _InputNodesHelper(type) {
-  function _getInputNodes(field, name, value) {
-    return '<input type="text" placeholder=' + field + ' name=' + name + (value ? ' value=' + value : '') + ' />';
-  }
-
-  if (!this[type]) {
-    return;
-  }
-
-  var elm = "";
-  for (var i=0; i <= this[type].length; i++) {
-    for (var key in this[type][i]) {
-      elm += _getInputNodes(key, type + '[' + i + ']' + '[' + key + ']', (this[type][i])[key]);
-    }
-  }
-
-  return elm;
-}
-
-function _getValueAttribHelper(elm, key) {
-  /* TODO: find a better way to map objects */
-  if (this[elm] && !key) {
-    return 'value=' + this[elm];
-  }
-
-  if (typeof key === "string" && this[elm] && this[elm][key]) {
-    return 'value=' + this[elm][key];
-  }
 }
