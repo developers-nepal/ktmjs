@@ -8,8 +8,6 @@ var open = require('open');
 var path = require('path');
 var multer = require('multer');
 
-var episodes = require('./db/Meetup.json');
-
 console.log('Namaste.\nWelcome to Kathmandu Javascript community.');
 
 var server = express();
@@ -93,7 +91,7 @@ server.get('/save', function(req, res) {
 });
 
 server.get('/publish', function(req, res) {
-  _publish(episodes);
+  //_publish(episodes);
   res.send('done');
 });
 
@@ -163,17 +161,17 @@ server.listen(port, function() {
   });
 });
 
-function _publish(episodes) {
-  episodes && episodes.forEach(function(episode) {
-    var hbsTemplate = fs.readFileSync(path.join(__dirname, 'template/index.hbs')).toString();
-    var template = handlebars.compile(hbsTemplate);
-    var htmlTemplate = template(episode);
-
-    fs.writeFileSync(path.join(__dirname, 'dist/' + episode.date.replace(/\s+/g, '_') + '.html'), htmlTemplate, 'utf8', function(err) {
-      if (err) throw err;
-    });
-  });
-}
+// function _publish(episodes) {
+//   episodes && episodes.forEach(function(episode) {
+//     var hbsTemplate = fs.readFileSync(path.join(__dirname, 'template/index.hbs')).toString();
+//     var template = handlebars.compile(hbsTemplate);
+//     var htmlTemplate = template(episode);
+//
+//     fs.writeFileSync(path.join(__dirname, 'dist/' + episode.date.replace(/\s+/g, '_') + '.html'), htmlTemplate, 'utf8', function(err) {
+//       if (err) throw err;
+//     });
+//   });
+// }
 
 function _DropdownMenuHelper(type) {
   function _getInputNodes(name, val) {
