@@ -7,6 +7,7 @@ var handlebars = require('handlebars');
 var open = require('open');
 var path = require('path');
 var multer = require('multer');
+var moment = require('moment');
 
 console.log('Namaste.\nWelcome to Kathmandu Javascript community.');
 
@@ -90,11 +91,79 @@ server.get('/save', function(req, res) {
   });
 });
 
-server.get('/publish', function(req, res) {
-  //_publish(episodes);
-  res.send('done');
-});
+function findAt(arr, id) {
+  var index = null;
 
+  arr.forEach(function(e, idx) {
+    if (e._id === id) {
+      index = idx;
+    }
+  });
+
+  return index;
+}
+
+server.get('/publish', function(req, res) {
+  var _people, _companies;
+
+  db.companies.find({}, function(err, docs) {
+    _companies = docs;
+    db.people.find({}, function(err, docs) {
+      _people = docs;
+      db.meetups.find({}, function(err, docs) {
+        docs.forEach(function(e) {
+          var _date = moment(e.date, 'YYYY/MM/DD');
+
+          e.episode = +e.episode < 10 ? "0" + e.episode : e.episode;
+          e.year = _date.year();
+          e.month = _date.format('MMMM');
+          e.day = _date.format('Do');
+
+          var _startingAt = moment(e.startsAt, "HH:mm");
+          e.startsAtHr = _startingAt.format('HH');
+          e.startsAtMin = _startingAt.format('mm');
+          e.startsAtAMPM = _startingAt.format('a');
+
+          var _endingAt = moment(e.endsAt, "HH:mm");
+          e.endsAtHr = _endingAt.format('HH');
+          e.endsAtMin = _endingAt.format('mm');
+          e.endsAtAMPM = _endingAt.format('a');
+
+          if (e.sessions) {
+            e.sessions.forEach(function(s) {
+              var _startingAt = moment(s.time, "HH:mm");
+              s.time = s.time + _startingAt.format('a');
+
+              s.people.forEach(function(p) {
+                var index = findAt(_people, p.name);
+                if (index >= 0) {
+                  p.data = _people[index]
+                }
+              });
+            });
+          }
+
+          e.sponsors && e.sponsors.forEach(function(s) {
+            var index = findAt(_companies, s.name);
+            if (index >= 0) {
+              s.data = _companies[index]
+            }
+          });
+
+          e.supporters && e.supporters.forEach(function(s) {
+            var index = findAt(_companies, s.name);
+            if (index >= 0) {
+              s.data = _companies[index]
+            }
+          });
+        });
+
+        console.log('wtf', docs[1]);
+        res.send('done');
+      })
+    });
+  });
+});
 
 server.get('/companies', function(req, res) {
   res.render('companies', {});

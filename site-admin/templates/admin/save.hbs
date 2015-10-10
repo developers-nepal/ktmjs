@@ -18,7 +18,12 @@
     <div class="Panel__Timeline">
       <form action="save_event" method="post">
         <input type="text" placeholder="episode" name="episode" value={{episode}} />
-        <input type="text" placeholder="date" name="date" />
+        <input type="date" placeholder="date" name="date" />
+        <h5>Starting time</h5>
+        <input type="time" placeholder="starting time" name="startsAt" />
+        <h5>Ending time</h5>
+        <input type="time" placeholder="ending time" name="endsAt" />
+
         <h4>Venue</h4>
         <input type="text" placeholder="Organisation" name="venue[organisation]" />
         <input type="text" placeholder="Address Line 1" name="venue[addr_line1]" />
@@ -27,7 +32,7 @@
         <h4>Sessions</h4>
         <div id="sessions">
           <input type="text" placeholder="title">
-          <input type="text" placeholder="time">
+          <input type="time" placeholder="time">
           <input type="text" placeholder="desc">
           {{{dropdown "people"}}}
           <button onclick="return addPeople(event);">Add People</button>
@@ -71,7 +76,6 @@
           e.preventDefault();
 
           var sessionsElm = document.getElementById('sessions');
-          console.log('hey what', sessionsElm);
           sessions.appendChild(getNode("sessions[" + window.Index.Session + "][title]", "hidden", "title", sessionsElm.children[0].value));
           sessions.appendChild(getNode("sessions[" + window.Index.Session + "][time]", "hidden", "time", sessionsElm.children[1].value));
           sessions.appendChild(getNode("sessions[" + window.Index.Session + "][desc]", "hidden", "desc", sessionsElm.children[2].value));

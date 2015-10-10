@@ -18,7 +18,12 @@
     <div class="Panel__Timeline">
       <form action="/update/{{_id}}" method="post">
         <input type="text" placeholder="episode" name="episode" value={{episode}} />
-        <input type="text" placeholder="date" name="date" value={{date}}/>
+        <input type="date" placeholder="date" name="date" value={{date}} />
+        <h5>Starting time</h5>
+        <input type="time" placeholder="starting time" name="startsAt" value={{startsAt}} />
+        <h5>Ending time</h5>
+        <input type="time" placeholder="ending time" name="endsAt" value={{endsAt}} />
+
         <h4>Venue</h4>
         <input type="text" placeholder="Organisation" name="venue[organisation]" value={{venue.organisation}} />
         <input type="text" placeholder="Address Line 1" name="venue[addr_line1]" value={{venue.addr_line1}} />
@@ -28,7 +33,7 @@
         <div id="sessions">
           {{#each sessions}}
           <input type="text" placeholder="title" value={{title}}>
-          <input type="text" placeholder="time"  value={{time}}>
+          <input type="time" placeholder="time"  value={{time}}>
           <input type="text" placeholder="desc"  value={{desc}}>
           {{~/each}}
 
