@@ -1,0 +1,11 @@
+@import 'base/viewport';
+
+.logo {
+  width: 125px;
+}
+
+.Panel  {
+  &__Navigation {}
+
+  &__timeline {}
+}
