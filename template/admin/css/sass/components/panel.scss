@@ -1,11 +1,64 @@
-@import 'base/viewport';
+@import 'base/pallete';
+@import 'base/typography';
 
 .logo {
   width: 125px;
 }
 
 .Panel  {
-  &__Navigation {}
+  &__Navigation {
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    border-bottom: 1px solid;
+    @include color('ash', 'border');
 
-  &__timeline {}
+    a {
+      @include font('lato', 'extra-bold', em(16));
+      margin: 0px 35px;
+      text-transform: uppercase;
+      text-decoration: none;
+      @include color('pure-black');
+
+      &:hover {
+        @include color('vicious');
+      }
+    }
+  }
+  
+  &__Call-to-action {
+    width: 800px;
+    height: auto;
+    margin: auto;
+    padding: 40px 0;
+    padding-left: 380px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  &__Timeline {
+    width: 800px;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+  }
+}
+
+
+.Button {
+  display: table;
+  width: auto;
+  height: auto;
+  text-align: center;
+  padding: 10px 30px;
+  margin: 30px 0;
+  border-radius: 3px;
+  border: 1px solid;
+  @include color('vicious-dark', 'border');
+  @include color('vicious', 'bg');
+  @include color('pure-white');
+  @include font('lato', 'extra-bold', em(14));
+  letter-spacing: em(0.88);
+  text-decoration: none;
+  text-transform: uppercase;
 }
