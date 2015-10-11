@@ -11,7 +11,7 @@
 
 .Slice  {
   position: relative;
-  padding-left: 60px;
+  padding: 0 0 80px 60px;
   box-sizing: border-box;
   border-left: 1px solid;
   @include color('ash', 'border');
