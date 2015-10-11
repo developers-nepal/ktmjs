@@ -1,18 +1,13 @@
 'use strict';
 
 var express = require('express'),
+  path = require('path'),
   router = express.Router();
 
-var Datastore = require('nedb');
-var db = {
-  'companies' : new Datastore({ filename: './db/companies.db', autoload: true}),
-  'people' : new Datastore({ filename: './db/people.db', autoload: true}),
-  'meetups' : new Datastore({ filename: './db/meetups.db', autoload: true})
-};
-
 var DropdownMenu = require('../helpers_hbs.js').DropdownMenu;
+var db = require('../db.js')();
 
-router.get('/forms/save/:id', function(req, res) {
+router.get('/forms/save', function(req, res) {
   db.meetups.find({}, function (err, docs) {
     var _meetups = docs;
     db.companies.find({}, function (err, docs) {
@@ -51,15 +46,15 @@ router.get('/forms/update/:id', function(req, res) {
 router.put('/:id', function(req, res) {
   var params = req.body;
   db.meetups.update({ _id: req.params.id }, req.body, {}, function (err, numReplaced) {
-    res.redirect('/');
+    res.redirect('/meetups');
   });
 });
 
-router.delete('/:id', function(req, res) {
+router.get('/delete/:id', function(req, res) {
   var id = req.params.id;
 
   db.meetups.remove({ _id: id }, {}, function (err, numRemoved) {
-    res.redirect('/');
+    res.redirect('/meetups');
   });
 });
 
@@ -70,11 +65,11 @@ router.post('/', function(req, res) {
   delete req.body.companies;
 
   db.meetups.insert(params, function(err, NewDoc) {
-    res.redirect('/');
+    res.redirect('/meetups');
   });
 });
 
-meetups.get('/', function(req, res) {
+router.get('/', function(req, res) {
   db.meetups.find({}, function (err, docs) {
     res.render('admin/index', {"episodes": docs});
   });

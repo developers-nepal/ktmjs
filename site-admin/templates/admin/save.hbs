@@ -9,14 +9,14 @@
     <div class="Panel__Navigation">
       <img class="logo" src="/admin/images/logo.png" alt="Kathmandu JS User Group Logo" />
       <ul class="Navigation">
-        <li><a href="/">Meetups</a></li>
+        <li><a href="/meetups">Meetups</a></li>
         <li><a href="/companies">Companies</a></li>
         <li><a href="/people">People</a></li>
       </ul>
     </div>
 
     <div class="Panel__Timeline">
-      <form action="save_event" method="post">
+      <form action="/meetups" method="post">
         <input type="text" placeholder="episode" name="episode" value={{episode}} />
         <input type="date" placeholder="date" name="date" />
         <h5>Starting time</h5>

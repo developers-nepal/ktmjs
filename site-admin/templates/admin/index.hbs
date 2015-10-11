@@ -9,21 +9,21 @@
     <div class="Panel__Navigation">
       <img class="logo" src="/admin/images/logo.png" alt="Kathmandu JS User Group Logo" />
       <ul class="Navigation">
-        <li><a href="/">Meetups</a></li>
+        <li><a href="/meetups">Meetups</a></li>
         <li><a href="/companies">Companies</a></li>
         <li><a href="/people">People</a></li>
       </ul>
     </div>
 
     <div class="Panel__Timeline">
-      <a href="save">Add a Meetup</a>
-      <a href="publish">Publish</a>
+      <a href="/meetups/forms/save">Add a Meetup</a>
+      <a href="/publish">Publish</a>
 
       <h4>Past Meetups</h4>
       {{#each episodes}}
       <p>{{episode}},{{date}}
-        <a href="update/form/{{_id}}">Update</a>
-        <a href="delete_event/{{_id}}">X</a>
+        <a href="meetups/form/save/{{_id}}">Update</a>
+        <a href="meetups/delete/{{_id}}">X</a>
       </p>
       {{~/each}}
     </div>

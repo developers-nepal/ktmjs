@@ -7,19 +7,15 @@ var express = require('express'),
   fs = require('fs'),
   router = express.Router();
 
-var Datastore = require('nedb');
-var db = {};
-db.companies = new Datastore({ filename: './db/companies.db', autoload: true});
-db.people = new Datastore({ filename: './db/people.db', autoload: true});
-db.meetups = new Datastore({ filename: './db/meetups.db', autoload: true});
+var db = require('../db.js')();
 
 function _publish(episodes) {
   episodes && episodes.forEach(function(episode) {
-    var hbsTemplate = fs.readFileSync(path.join(__dirname, 'templates/site/index.hbs')).toString();
+    var hbsTemplate = fs.readFileSync(path.join(__dirname, '../templates/site/index.hbs')).toString();
     var template = handlebars.compile(hbsTemplate);
     var htmlTemplate = template(episode);
 
-    fs.writeFileSync(path.join(__dirname, 'dist/' + episode.date.replace(/\s+/g, '_') + '.html'), htmlTemplate, 'utf8', function(err) {
+    fs.writeFileSync(path.join(__dirname, '../dist/' + episode.date.replace(/\s+/g, '_') + '.html'), htmlTemplate, 'utf8', function(err) {
       if (err) throw err;
     });
   });
@@ -45,7 +41,7 @@ function _populate(e, field, db) {
     return index;
   }
 
-  e[field] && e[field]forEach(function(s) {
+  e[field] && e[field].forEach(function(s) {
     var index = findAt(db, s.name);
     if (index >= 0) {
       s.data = db[index]
