@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 60px;
+  width: 59px;
   float: left;
   z-index: 2;
 }
@@ -24,9 +24,10 @@
     border-bottom: 1px solid;
     @include color('ash', 'border');
     @include color('pure-white', 'bg');
+    box-shadow: 0px 0px 1px 0px #ddd;
 
     a {
-      @include font('lato', 'extra-bold', em(16));
+      @include font('lato', 'extra-bold', em(14));
       margin: 0px 25px;
       text-transform: uppercase;
       text-decoration: none;
