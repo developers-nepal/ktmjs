@@ -104,7 +104,8 @@ body {
   width: 500px;
   height: auto;
   overflow: hidden;
-  margin: auto; }
+  margin: auto;
+  margin-top: 120px; }
 
 .Button {
   display: table;
@@ -115,8 +116,6 @@ body {
   margin: 30px 0;
   border-radius: 3px;
   border: 1px solid;
-  border-color: #239E57;
-  background-color: #27AE60;
   color: #FFFFFF;
   font-family: "Lato";
   font-weight: 900;
@@ -124,6 +123,12 @@ body {
   letter-spacing: 0.055em;
   text-decoration: none;
   text-transform: uppercase; }
+  .Button--Success {
+    border-color: #239E57;
+    background-color: #27AE60; }
+  .Button--Danger {
+    border-color: #C0392B;
+    background-color: #E74C3C; }
 
 /* Fonts Register */
 /* Text Style Helpers */
@@ -241,3 +246,67 @@ body {
     font-weight: 400;
     font-size: 1em;
     color: #808080; }
+
+/* Color Pallete */
+/* Pallete helper methods.*/
+/* Fonts Register */
+/* Text Style Helpers */
+/* Typography Helpers Methods */
+/* Reset Default Typeset. */
+body {
+  font-size: "16px";
+  line-height: 1.4; }
+
+.Form input, .Form textarea {
+  margin-bottom: 30px; }
+.Form label {
+  margin-bottom: 10px; }
+.Form__Title {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 1.875em; }
+.Form__Splitter {
+  border: 0;
+  border-bottom: 1px solid;
+  border-color: #EEEEEE; }
+.Form__Description {
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 1em;
+  color: #808080;
+  margin-bottom: 60px; }
+.Form__Label {
+  display: table;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 0.875em; }
+.Form__TextInput {
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #EEEEEE;
+  outline: none; }
+  .Form__TextInput:focus {
+    border-color: #808080; }
+.Form__TextArea {
+  width: 100%;
+  height: 100px;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #EEEEEE;
+  outline: none; }
+  .Form__TextArea:focus {
+    border-color: #808080; }
+.Form__File {
+  width: 100%; }
+.Form__Button-group {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 60px;
+  text-align: right; }
+  .Form__Button-group .Button {
+    display: table;
+    float: right;
+    margin-left: 30px; }
