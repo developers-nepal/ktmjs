@@ -129,6 +129,9 @@ body {
   .Button--Danger {
     border-color: #C0392B;
     background-color: #E74C3C; }
+  .Button--Neutral {
+    border-color: #2980B9;
+    background-color: #3498DB; }
 
 /* Fonts Register */
 /* Text Style Helpers */
@@ -265,6 +268,14 @@ body {
   font-family: "Lato";
   font-weight: 700;
   font-size: 1.25em; }
+.Form__Subtitle {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 1em;
+  border-left: 5px solid;
+  border-color: #27AE60;
+  padding-left: 10px;
+  margin: 60px 0 30px 0; }
 .Form__Splitter {
   border: 0;
   border-bottom: 1px solid;
@@ -277,6 +288,7 @@ body {
   margin-bottom: 60px; }
 .Form__Label {
   display: table;
+  text-transform: capitalize;
   font-family: "Lato";
   font-weight: 400;
   font-size: 0.875em; }

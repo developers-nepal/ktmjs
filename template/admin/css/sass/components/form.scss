@@ -15,6 +15,14 @@
     @include font('lato', 'bold', em(20));
   }
 
+  &__Subtitle {
+    @include font('lato', 'bold', em(16));
+    border-left: 5px solid;
+    @include color('vicious', 'border');
+    padding-left: 10px;
+    margin: 60px 0 30px 0;
+  }
+
   &__Splitter {
     border: 0;
     border-bottom: 1px solid;
@@ -29,6 +37,7 @@
 
   &__Label  {
     display: table;
+    text-transform: capitalize;
     @include font('lato', 'regular', em(14));
   }
 
