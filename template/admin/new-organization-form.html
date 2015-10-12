@@ -1,0 +1,63 @@
+<html>
+<head>
+  <title>Admin - New organization | KTM.JS | Kathmandu Javscript User Group</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'/>
+  <link rel="stylesheet" href="css/index.css" type="text/css"/>
+</head>
+<body>
+  <img src="images/logo.png" class="logo" alt="ktm.js logo">
+  <nav class="Panel__Navigation">
+    <a class="selected" href="#">Episodes</a>
+    <a href="#">People</a>
+    <a href="#">Organizations</a>
+  </nav>
+  
+  <section class="Panel__Form">
+    <form action="#" method="POST" class="Form" enctype="multipart/form-data">
+      
+      <h1 class="Form__Title">New Organization</h1>
+      <hr class="Form__Splitter"/>
+      <p class="Form__Description">fill up the form to add new organization to the community</p>
+
+      <label for="name" class="Form__label">Name</label>
+      <input type="text" name="name" class="Form__TextInput"/>
+
+      <label for="address_1" class="Form__label">Address 1</label>
+      <input type="text" name="address_1" class="Form__TextInput"/>
+
+      <label for="address_2" class="Form__label">Address 2</label>
+      <input type="text" name="address_2" class="Form__TextInput"/>
+
+      <label for="phone_number" class="Form__label">Phone Number</label>
+      <input type="text" name="phone_number" class="Form__TextInput"/>
+      
+      <label for="email" class="Form__label">Email</label>
+      <input type="text" name="email" class="Form__TextInput"/>
+
+      <label for="website" class="Form__label">Website</label>
+      <input type="text" name="website" class="Form__TextInput"/>
+
+      <label for="about" class="Form__label">About</label>
+      <textarea name="about" class="Form__TextArea"/></textarea>
+      
+      <label for="logo" class="Form__label">Logo</label>
+      <input type="file" name="logo" class="Form__File"/>
+
+      <label for="twitter" class="Form__label">Twitter</label>
+      <input type="text" name="twitter" class="Form__TextInput"/>
+
+      <label for="github" class="Form__label">Github</label>
+      <input type="text" name="github" class="Form__TextInput"/>
+
+      <label for="facebook" class="Form__label">Facebook</label>
+      <input type="text" name="facebook" class="Form__TextInput"/>
+
+      <section class="Form__Button-group">
+        <button type="submit" class="Button Button--Success">Save</button>
+        <button class="Button Button--Danger">Cancel</button>
+      </section>
+
+    </form>
+  </section>
+</body>
+</html>

@@ -1,0 +1,69 @@
+@import 'base/typography';
+@import 'base/pallete';
+
+
+.Timeline {
+  padding-left: 320px;
+  box-sizing: border-box;
+
+  &__Slice  {}
+}
+
+.Slice  {
+  position: relative;
+  padding: 0 0 80px 60px;
+  box-sizing: border-box;
+  border-left: 1px solid;
+  @include color('ash', 'border');
+
+  &__Meta {
+    width: 245px;
+    text-align: right;
+    position: absolute;
+    top: 0px;
+    left: -300px;
+  }
+
+  &__Details  {}
+
+  &__Ornament {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    border-radius: 16px;
+    border: 1px solid;
+    @include color('ashley', 'border');
+    @include color('ash', 'bg');
+
+  }
+}
+
+.Meta {
+  &__Episode  {
+    margin-bottom: 20px;
+    @include font('lato', 'bold', em(25));
+  }
+
+  &__Date {
+    display: block;
+    @include font('lato', 'regular', em(18));
+  }
+
+  &__Time {
+    display: block;
+    margin-bottom: 20px;
+    @include font('lato', 'regular', em(16));
+    @include color('igray');
+  }
+
+  &__Venue  {
+    @include font('lato', 'bold', em(18));
+
+    &-address {
+      @include font('lato', 'regular', em(16));
+      @include color('igray');
+    }
+  }
+}

@@ -1,0 +1,31 @@
+/* Color Pallete */
+
+$pallete : (
+  pure-white: #FFFFFF,
+  ash: #EEEEEE,
+  ashley: #DDDDDD,
+  igray: #808080,
+  vicious: #27AE60,
+  vicious-dark: #239E57,
+  alizarin: #E74C3C,
+  pomegranate: #C0392B,
+  peter-river: #3498DB,
+  belize-hole: #2980B9,
+  pure-black: #000000
+);
+
+/* Pallete helper methods.*/
+@mixin color($color, $type : 'color', $imp: false, $opacity : 1)  {
+  $color : map-get($pallete, $color);
+
+  @if $opacity != 1 { $color : rgba($color, $opacity);}
+  @if $imp == true { $color: $color !important; }
+
+  @if $type == 'bg' {
+    background-color: $color;
+  } @else if $type == 'border'  {
+    border-color: $color;
+  } @else {
+    color : $color;
+  }
+}

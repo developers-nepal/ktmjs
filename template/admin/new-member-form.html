@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>Admin - New Member | KTM.JS | Kathmandu Javscript User Group</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'/>
+  <link rel="stylesheet" href="css/index.css" type="text/css"/>
+</head>
+<body>
+  <img src="images/logo.png" class="logo" alt="ktm.js logo">
+  <nav class="Panel__Navigation">
+    <a class="selected" href="#">Episodes</a>
+    <a href="#">People</a>
+    <a href="#">Organizations</a>
+  </nav>
+  
+  <section class="Panel__Form">
+    <form action="#" method="POST" class="Form" enctype="multipart/form-data">
+      
+      <h1 class="Form__Title">New Member</h1>
+      <hr class="Form__Splitter"/>
+      <p class="Form__Description">fill up the form to add new member to the community</p>
+
+      <label for="name" class="Form__label">Name</label>
+      <input type="text" name="name" class="Form__TextInput"/>
+
+      <label for="designation" class="Form__label">Designation</label>
+      <input type="text" name="designation" class="Form__TextInput"/>
+
+      <label for="organization" class="Form__label">Organization</label>
+      <input type="text" name="organization" class="Form__TextInput"/>
+
+      <label for="bio" class="Form__label">Bio</label>
+      <textarea name="bio" class="Form__TextArea"/></textarea>
+      
+      <label for="profile_picture" class="Form__label">Profile Picture</label>
+      <input type="file" name="profile_picture" class="Form__File"/>
+
+      <label for="twitter" class="Form__label">Twitter</label>
+      <input type="text" name="twitter" class="Form__TextInput"/>
+
+      <label for="github" class="Form__label">Github</label>
+      <input type="text" name="github" class="Form__TextInput"/>
+
+      <label for="facebook" class="Form__label">Facebook</label>
+      <input type="text" name="facebook" class="Form__TextInput"/>
+
+      <section class="Form__Button-group">
+        <button type="submit" class="Button Button--Success">Save</button>
+        <button class="Button Button--Danger">Cancel</button>
+      </section>
+
+    </form>
+  </section>
+</body>
+</html>

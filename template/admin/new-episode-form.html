@@ -1,0 +1,78 @@
+<html>
+<head>
+  <title>Admin - New episode | KTM.JS | Kathmandu Javscript User Group</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'/>
+  <link rel="stylesheet" href="css/index.css" type="text/css"/>
+</head>
+<body>
+  <img src="images/logo.png" class="logo" alt="ktm.js logo">
+  <nav class="Panel__Navigation">
+    <a class="selected" href="#">Episodes</a>
+    <a href="#">People</a>
+    <a href="#">Organizations</a>
+  </nav>
+  
+  <section class="Panel__Form">
+    <form action="#" method="POST" class="Form" enctype="multipart/form-data">
+      
+      <h1 class="Form__Title">New Episode</h1>
+      <hr class="Form__Splitter"/>
+      <p class="Form__Description">fill up the form to add new episode</p>
+
+      <label for="episode" class="Form__label">episode</label>
+      <input type="text" name="episode" class="Form__TextInput"/>
+
+      <label for="date" class="Form__label">date</label>
+      <input type="text" name="date" class="Form__TextInput"/>
+
+      <label for="start_time" class="Form__label">start time</label>
+      <input type="text" name="start_time" class="Form__TextInput"/>
+      
+      <label for="end_time" class="Form__label">end time</label>
+      <input type="text" name="end_time" class="Form__TextInput"/>
+
+
+      <h2 class="Form__Subtitle">Venue Details</h2>
+
+      <label for="venue" class="Form__label">Organization Name</label>
+      <input type="text" name="venue" class="Form__TextInput"/>
+
+      <label for="address_1" class="Form__label">Organization Address 1</label>
+      <input type="text" name="address_1" class="Form__TextInput"/>
+
+      <label for="address_2" class="Form__label">Organization Address 2</label>
+      <input type="text" name="address_2" class="Form__TextInput"/>
+
+      <h2 class="Form__Subtitle">Session Details</h2>
+
+      <label for="title" class="Form__label">Title</label>
+      <input type="text" name="title" class="Form__TextInput"/>
+
+      <label for="time" class="Form__label">Session Start Time</label>
+      <input type="text" name="time" class="Form__TextInput"/>
+
+      <label for="description" class="Form__label">Description</label>
+      <input type="text" name="description" class="Form__TextArea"/>
+
+      <label for="speakers" class="Form__label">Speaker</label>
+      <input type="text" name="speakers" class="Form__TextInput"/>
+
+      <button class="Button Button--Neutral">+ Add another session</button>
+
+      <h2 class="Form__Subtitle">Sponsors & Supporters</h2>
+
+      <label for="sponsors" class="Form__label">Sponsors</label>
+      <input type="text" name="sponsors" class="Form__TextInput"/>
+      
+      <label for="supporters" class="Form__label">Supporters</label>
+      <input type="text" name="supporters" class="Form__TextInput"/>
+
+      <section class="Form__Button-group">
+        <button type="submit" class="Button Button--Success">Save</button>
+        <button class="Button Button--Danger">Cancel</button>
+      </section>
+
+    </form>
+  </section>
+</body>
+</html>

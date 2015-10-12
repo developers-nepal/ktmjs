@@ -1,0 +1,71 @@
+$media-register : (
+  /* small smartphone landscape and portrait and both. */
+  'small-phone-lp' : 'only screen
+                     and (min-width : 320px)',
+
+  'small-phone-l' : 'only screen
+                    and (min-width : 321px)
+                    and (orientation : landscape)',
+
+  'small-phone-p' : 'only screen
+                    and (min-width : 320px)
+                    and (orientation : portrait)',
+
+  /* large smartphone landscape and portrait and both. */
+  'large-phone-lp' : 'only screen
+                     and (min-width : 480px)',
+
+  'large-phone-l' : 'only screen
+                    and (min-width : 600px)
+                    and (orientation : landscape)',
+
+  'large-phone-p' : 'only screen
+                    and (min-width : 480px)
+                    and (orientation : portrait)',
+
+  /* tablet lanscape, portrait and both. */
+  'tablet-lp' : 'only screen
+               and (min-width : 768px)',
+
+  'tablet-l' : 'only screen
+              and (min-width : 768px)
+              and (max-width : 1024px)
+              and (orientation : landscape)',
+
+  'tablet-p' : 'only screen
+              and (min-width : 768px)
+              and (max-width : 1024px)
+              and (orientation : portrait)',
+
+  /* medium device */
+  'medium-device' : 'only screen
+               and (min-width : 992px)',
+
+  /* Large Screen*/
+  'large-screen' : 'only screen and (min-width: 1440px)',
+
+  /* iPhone 4 */
+  'iphone-4' : 'only screen
+                and (-webkit-min-device-pixel-ratio : 1.5)
+                and (min-device-pixel-ratio : 1.5)',
+
+  'print' : 'print'
+
+);
+
+@function generate-content-media-query($breakpoint) {
+  @return 'only screen
+           and (min-width : ' + $breakpoint + ')';
+}
+
+@mixin respond-to($media, $breakpoint : '0px') {
+  $media-query : '';
+
+  @if $media == 'content' {
+    $media-query : generate-content-media-query($breakpoint);
+  } @else {
+    $media-query : map-get($media-register, $media);
+  }
+
+  @media #{$media-query} { @content; }
+}

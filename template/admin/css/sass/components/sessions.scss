@@ -1,0 +1,48 @@
+@import 'base/typography';
+@import 'base/pallete';
+
+.Session  {
+
+  &__Title  {
+    margin-bottom: 10px;
+    @include font('lato', 'bold', em(18));
+  }
+  
+  &__Speaker  {
+    @include font('lato', 'regular', em(16));
+    
+    &-label {
+      font: inherit;
+      font-style: italic;
+    }
+
+    &-organization  {
+      margin-bottom: 10px;
+      @include font('lato', 'regular', em(14));
+      @include color('igray');
+    }
+  }
+
+  &__Description  {
+    margin-bottom: 30px;
+    @include font('georgia', 'regular', em(16), 1.5);
+  }
+}
+
+.Splitter {
+  width: 20%;
+  margin: 30px 0px;
+  border: 0;
+  border-bottom: 1px solid;
+  @include color('ash', 'border');
+}
+
+.Sponsors-Supporters {
+  margin-bottom:20px;
+  @include font('lato', 'regular', em(16));
+
+  &__Label {
+    margin-right: 10px;
+    @include font('lato', 'bold', em(16));
+  }
+}
