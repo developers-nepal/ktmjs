@@ -104,4 +104,10 @@
     @include color('pomegranate', 'border');
     @include color('alizarin', 'bg');
   }
+  
+  &--Neutral {
+    @include color('belize-hole', 'border');
+    @include color('peter-river', 'bg');
+  }
+
 }
