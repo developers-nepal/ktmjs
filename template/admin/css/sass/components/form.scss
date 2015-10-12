@@ -12,7 +12,7 @@
   }
 
   &__Title  {
-    @include font('lato', 'bold', em(30));
+    @include font('lato', 'bold', em(20));
   }
 
   &__Splitter {
@@ -22,7 +22,7 @@
   }
 
   &__Description  {
-    @include font('lato', 'regular', em(16));
+    @include font('lato', 'regular', em(14));
     @include color('igray');
     margin-bottom: 60px;
   }

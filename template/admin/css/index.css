@@ -264,7 +264,7 @@ body {
 .Form__Title {
   font-family: "Lato";
   font-weight: 700;
-  font-size: 1.875em; }
+  font-size: 1.25em; }
 .Form__Splitter {
   border: 0;
   border-bottom: 1px solid;
@@ -272,7 +272,7 @@ body {
 .Form__Description {
   font-family: "Lato";
   font-weight: 400;
-  font-size: 1em;
+  font-size: 0.875em;
   color: #808080;
   margin-bottom: 60px; }
 .Form__Label {
