@@ -1,0 +1,89 @@
+@import 'base/pallete';
+@import 'base/typography';
+
+.Form {
+
+  input, textarea {
+    margin-bottom: 30px;
+  }
+
+  label {
+    margin-bottom: 10px;
+  }
+
+  &__Title  {
+    @include font('lato', 'bold', em(20));
+  }
+
+  &__Subtitle {
+    @include font('lato', 'bold', em(16));
+    border-left: 5px solid;
+    @include color('vicious', 'border');
+    padding-left: 10px;
+    margin: 60px 0 30px 0;
+  }
+
+  &__Splitter {
+    border: 0;
+    border-bottom: 1px solid;
+    @include color('ash', 'border');
+  }
+
+  &__Description  {
+    @include font('lato', 'regular', em(14));
+    @include color('igray');
+    margin-bottom: 60px;
+  }
+
+  &__Label  {
+    display: table;
+    text-transform: capitalize;
+    @include font('lato', 'regular', em(14));
+  }
+
+  &__TextInput  {
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    border: 1px solid;
+    @include color('ash', 'border');
+    outline: none;
+
+    &:focus {
+      @include color('igray', 'border');
+    }
+
+  }
+
+  &__TextArea {
+    width: 100%;
+    height: 100px;
+    border-radius: 3px;
+    border: 1px solid;
+    @include color('ash', 'border');
+    outline: none;
+
+    &:focus {
+      @include color('igray', 'border');
+    }
+
+  }
+
+  &__File {
+    width: 100%;
+  }
+
+  &__Button-group {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 60px;
+    text-align: right;
+
+    .Button {
+      display: table;
+      float: right;
+      margin-left: 30px;
+    }
+  }
+}

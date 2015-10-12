@@ -68,6 +68,14 @@
     margin: auto;
     overflow: hidden;
   }
+
+  &__Form {
+    width: 500px;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 120px;
+  }
 }
 
 
@@ -80,11 +88,26 @@
   margin: 30px 0;
   border-radius: 3px;
   border: 1px solid;
-  @include color('vicious-dark', 'border');
-  @include color('vicious', 'bg');
   @include color('pure-white');
   @include font('lato', 'extra-bold', em(14));
   letter-spacing: em(0.88);
   text-decoration: none;
   text-transform: uppercase;
+
+
+  &--Success  {
+    @include color('vicious-dark', 'border');
+    @include color('vicious', 'bg');
+  }
+
+  &--Danger {
+    @include color('pomegranate', 'border');
+    @include color('alizarin', 'bg');
+  }
+  
+  &--Neutral {
+    @include color('belize-hole', 'border');
+    @include color('peter-river', 'bg');
+  }
+
 }
