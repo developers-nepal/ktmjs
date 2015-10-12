@@ -100,6 +100,11 @@ body {
   height: auto;
   margin: auto;
   overflow: hidden; }
+.Panel__Form {
+  width: 500px;
+  height: auto;
+  overflow: hidden;
+  margin: auto; }
 
 .Button {
   display: table;
