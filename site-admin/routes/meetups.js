@@ -1,11 +1,14 @@
 'use strict';
 
 var express = require('express'),
+  moment = require('moment'),
   path = require('path'),
   router = express.Router();
 
-var DropdownMenu = require('../helpers_hbs.js').DropdownMenu;
 var db = require('../db.js')();
+
+var _formatDate = require('../utils.js').formatDate;
+var _populate = require('../utils.js').populate;
 
 router.get('/forms/save', function(req, res) {
   db.meetups.find({}, function (err, docs) {
@@ -19,7 +22,12 @@ router.get('/forms/save', function(req, res) {
           'episode': _meetups.length ? (_meetups.length + 1) : 1,
           'companies': _companies,
           'people': _people,
-          'helpers': { dropdown: DropdownMenu }
+          'index': 'index',
+          'helpers': {
+            json: function(context) {
+              return JSON.stringify(context);
+            }
+          }
         });
       });
     });
@@ -27,6 +35,7 @@ router.get('/forms/save', function(req, res) {
 });
 
 router.get('/forms/update/:id', function(req, res) {
+  /* TODO */
   var id = req.params.id;
   db.companies.find({}, function (err, docs) {
     var _companies = docs;
@@ -35,7 +44,6 @@ router.get('/forms/update/:id', function(req, res) {
       db.meetups.findOne({_id: id}, function (err, docs) {
         docs.people = _people;
         docs.companies = _companies;
-        docs.helpers = { 'dropdown': DropdownMenu }
 
         res.render('admin/update', docs);
       });
@@ -70,8 +78,41 @@ router.post('/', function(req, res) {
 });
 
 router.get('/', function(req, res) {
-  db.meetups.find({}, function (err, docs) {
-    res.render('admin/index', {"episodes": docs});
+  var _people, _companies;
+
+  db.companies.find({}, function(err, docs) {
+    _companies = docs;
+    db.people.find({}, function(err, docs) {
+      _people = docs;
+      db.meetups.find({}, function(err, docs) {
+        docs.forEach(function(e) {
+          var _date = moment(e.date, 'YYYY/MM/DD');
+
+          e.episode = +e.episode < 10 ? "0" + e.episode : e.episode;
+          e.year = _date.year();
+          e.month = _date.format('MMMM');
+          e.day = _date.format('Do');
+
+          _formatDate(e, "startsAt", "startsAtHr", "startsAtMin", "startsAtAMPM");
+          _formatDate(e, "endsAt", "endsAtHr", "endsAtMin", "endsAtAMPM");
+
+          if (e.sessions) {
+            e.sessions.forEach(function(s) {
+              var _startingAt = moment(s.time, "HH:mm");
+              s.time = s.time + _startingAt.format('a');
+
+              _populate(s, "people", _people);
+            });
+          }
+
+          /* populate with values from db */
+          _populate(e, "sponsors", _companies);
+          _populate(e, "supporters", _companies);
+        });
+
+        res.render('admin/index', {"episodes": docs});
+      });
+    });
   });
 });
 

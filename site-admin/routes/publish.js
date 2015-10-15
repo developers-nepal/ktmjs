@@ -9,6 +9,9 @@ var express = require('express'),
 
 var db = require('../db.js')();
 
+var _formatDate = require('../utils.js').formatDate;
+var _populate = require('../utils.js').populate;
+
 function _publish(episodes) {
   episodes && episodes.forEach(function(episode) {
     var hbsTemplate = fs.readFileSync(path.join(__dirname, '../templates/site/index.hbs')).toString();
@@ -18,34 +21,6 @@ function _publish(episodes) {
     fs.writeFileSync(path.join(__dirname, '../dist/' + episode.date.replace(/\s+/g, '_') + '.html'), htmlTemplate, 'utf8', function(err) {
       if (err) throw err;
     });
-  });
-}
-
-function _formatDate(e, date, hr, min, ampm) {
-  var _at = moment(e[date], "HH:mm");
-  e[hr] = _at.format('HH');
-  e[min] = _at.format('mm');
-  e[ampm] = _at.format('a');
-}
-
-function _populate(e, field, db) {
-  function findAt(arr, id) {
-    var index = null;
-
-    arr.forEach(function(e, idx) {
-      if (e._id === id) {
-        index = idx;
-      }
-    });
-
-    return index;
-  }
-
-  e[field] && e[field].forEach(function(s) {
-    var index = findAt(db, s.name);
-    if (index >= 0) {
-      s.data = db[index]
-    }
   });
 }
 

@@ -1,31 +1,67 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Admin | KtmJS</title>
-    <link rel="stylesheet" href="/admin/css/admin.css" type="text/css"/>
-  </head>
+<head>
+  <title>Admin - New episode | KTM.JS | Kathmandu Javscript User Group</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'/>
+  <link rel="stylesheet" href="admin/css/index.css" type="text/css"/>
+</head>
 
   <body>
-    <div class="Panel__Navigation">
-      <img class="logo" src="/admin/images/logo.png" alt="Kathmandu JS User Group Logo" />
-      <ul class="Navigation">
-        <li><a href="/meetups">Meetups</a></li>
-        <li><a href="/companies">Companies</a></li>
-        <li><a href="/people">People</a></li>
-      </ul>
-    </div>
+    <img src="admin/images/logo.png" class="logo" alt="ktm.js logo">
+    <nav class="Panel__Navigation">
+      <a class="selected" href="/meetups">Episodes</a>
+      <a href="/people">People</a>
+      <a href="/companies">Organizations</a>
+    </nav>
 
-    <div class="Panel__Timeline">
-      <a href="/meetups/forms/save">Add a Meetup</a>
-      <a href="/publish">Publish</a>
+    <section class="Panel__Call-to-action">
+      <a href="/meetups/forms/save" class="Button Button--Success">Add new episode</a>
+    </section>
 
-      <h4>Past Meetups</h4>
+    <ol class="Panel__Timeline Timeline">
       {{#each episodes}}
-      <p>{{episode}},{{date}}
-        <a href="meetups/form/save/{{_id}}">Update</a>
-        <a href="meetups/delete/{{_id}}">X</a>
-      </p>
+      <li class="Timeline__Slice Slice">
+        <section class="Slice__Meta Meta">
+          <h1 class="Meta__Episode">Episode {{episode}}</h1>
+          <date class="Meta__Date">{{day}} {{month}}, {{year}}</date>
+          <time class="Meta__Time">{{startsAtHr}}:{{startsAtMin}}{{startsAtAMPM}} - {{endsAtHr}}:{{endsAtMin}}{{endsAtAMPM}}</time>
+          <p class="Meta__Venue">{{venue.organisation}}</p>
+          <p class="Meta__Venue-address">{{venue.addr_line1}}, {{venue.addr_line2}}</p>
+        </section>
+
+        <section class="Slice__Details">
+          {{#each sessions}}
+          <article class="Session">
+            <h2 class="Session__Title">{{title}}</h2>
+
+            {{#each people}}
+            <p class="Session__Speaker"><span class="Session__Speaker-label">Speaker - </span>{{data.info.name}}</p>
+            <p class="Session__Speaker-organization">{{data.info.designation}} at {{data.info.company}}.</p>
+            {{~/each}}
+
+            <p class="Session__Description">{{desc}}</p>
+          </article>
+          {{~/each}}
+
+          <hr class="Splitter"/>
+
+          <p class="Sponsors-Supporters">
+            <span class="Sponsors-Supporters__Label">Sponsors: </span>
+            {{#each sponsors}}
+            {{data.info.title}},
+            {{~/each}}
+          </p>
+
+          <p class="Sponsors-Supporters">
+            <span class="Sponsors-Supporters__Label">Supported by: </span>
+            {{#each supporters}}
+            {{data.info.title}}
+            {{~/each}}
+          </p>
+        </section>
+        <div class="Slice__Ornament"></div>
+      </li>
       {{~/each}}
-    </div>
+    </ol>
   </body>
 </html>

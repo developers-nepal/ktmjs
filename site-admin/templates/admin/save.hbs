@@ -1,122 +1,117 @@
 <!doctype html>
 <html>
   <head>
-    <title>Admin | KtmJS</title>
-    <link rel="stylesheet" href="/admin/css/admin.css" type="text/css"/>
+    <title>Admin | KTM.JS | Kathmandu Javscript User Group</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="/admin/css/index.css" type="text/css"/>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.0.beta.6.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/admin/js/jquery.tokeninput.js"></script>
+    <link rel="stylesheet" type="text/css" href="/admin/css/token-input.css" />
   </head>
 
   <body>
-    <div class="Panel__Navigation">
-      <img class="logo" src="/admin/images/logo.png" alt="Kathmandu JS User Group Logo" />
-      <ul class="Navigation">
-        <li><a href="/meetups">Meetups</a></li>
-        <li><a href="/companies">Companies</a></li>
-        <li><a href="/people">People</a></li>
-      </ul>
-    </div>
+    <img src="/admin/images/logo.png" class="logo" alt="ktm.js logo">
+    <nav class="Panel__Navigation">
+      <a class="selected" href="/meetups">Episodes</a>
+      <a href="/people">People</a>
+      <a href="/companies">Organizations</a>
+    </nav>
 
-    <div class="Panel__Timeline">
-      <form action="/meetups" method="post">
-        <input type="text" placeholder="episode" name="episode" value={{episode}} />
-        <input type="date" placeholder="date" name="date" />
-        <h5>Starting time</h5>
-        <input type="time" placeholder="starting time" name="startsAt" />
-        <h5>Ending time</h5>
-        <input type="time" placeholder="ending time" name="endsAt" />
+    <section class="Panel__Form">
+      <form action="/meetups" method="POST" class="Form" name="meetup-form">
 
-        <h4>Venue</h4>
-        <input type="text" placeholder="Organisation" name="venue[organisation]" />
-        <input type="text" placeholder="Address Line 1" name="venue[addr_line1]" />
-        <input type="text" placeholder="Address Line 2" name="venue[addr_line2]" />
+        <h1 class="Form__Title">New Episode</h1>
+        <hr class="Form__Splitter"/>
+        <p class="Form__Description">fill up the form to add new episode</p>
 
-        <h4>Sessions</h4>
+        <label for="episode" class="Form__Label">episode</label>
+        <input type="text" name="episode" class="Form__TextInput" value={{episode}} />
+
+        <label for="date" class="Form__Label">date</label>
+        <input type="date" name="date" class="Form__TextInput"/>
+
+        <label for="start_time" class="Form__Label">start time</label>
+        <input type="time" name="startsAt" class="Form__TextInput"/>
+
+        <label for="end_time" class="Form__Label">end time</label>
+        <input type="time" name="endsAt" class="Form__TextInput"/>
+
+        <h2 class="Form__Subtitle">Venue Details</h2>
+
+        <label for="venue" class="Form__Label">Organization Name</label>
+        <input type="text" name="venue[organisation]" class="Form__TextInput"/>
+
+        <label for="address_1" class="Form__Label">Organization Address 1</label>
+        <input type="text" name="venue[addr_line1]" class="Form__TextInput"/>
+
+        <label for="address_2" class="Form__Label">Organization Address 2</label>
+        <input type="text" name="venue[addr_line2]" class="Form__TextInput"/>
+
+        <h2 class="Form__Subtitle">Session Details</h2>
+
         <div id="sessions">
-          <input type="text" placeholder="title">
-          <input type="time" placeholder="time">
-          <input type="text" placeholder="desc">
-          {{{dropdown "people"}}}
-          <button onclick="return addPeople(event);">Add People</button>
-        </div>
-        <button onclick="return addSession(event);">Add Session</button>
+          <label for="title" class="Form__Label">Title</label>
+          <input type="text" name="session[0][title]" class="Form__TextInput"/>
 
-        <h4>Sponsors</h4>
-        <div id="sponsors">
-          {{{dropdown "companies"}}}
-        </div>
-        <button onclick="return addSponsors(event);">Add Sponsors</button>
+          <label for="time" class="Form__Label">Session Start Time</label>
+          <input type="time" name="session[0][time]" class="Form__TextInput"/>
 
-        <h4>Supporters</h4>
-        <div id="supporters">
-          {{{dropdown "companies"}}}
-        </div>
-        <button onclick="return addSupporters(event);">Add Supporters</button>
+          <label for="description" class="Form__Label">Description</label>
+          <textarea type="text" name="session[0][description]" class="Form__TextArea"></textarea>
 
-        <input type="submit" value="Save" />
+          <label for="speakers" class="Form__Label">Speaker</label>
+          <input type="text" id="speakers" name="session[0][speakers]" class="Form__TextInput"/>
+        </div>
+        <button type="button" onclick="return addSession(event);" class="Button Button--Neutral">+ Add another session</button>
+
+        <h2 class="Form__Subtitle">Sponsors & Supporters</h2>
+        <label for="sponsors" class="Form__Label">Sponsors</label>
+        <input type="text" id="sponsors" name="sponsors" class="Form__TextInput"/>
+
+        <label for="supporters" class="Form__Label">Supporters</label>
+        <input type="text" id="supporters" name="supporters" class="Form__TextInput"/>
+
+        <section class="Form__Button-group">
+          <button type="submit" class="Button Button--Success">Save</button>
+          <button class="Button Button--Danger">Cancel</button>
+        </section>
+
       </form>
+    </section>
+    <script>
+      $(document).ready(function () {
+        var companies = {{{json companies}}};
+        var people = {{{json people}}};
 
-      <script>
-        window.Index = {
-          Session: 0,
-          People: 0,
-          Sponsor: 0,
-          Supporter: 0
-        };
+        companies = companies.map(function(e) {
+          return { 'id': e._id, 'name': e.info.title };
+        });
 
-        function getNode(name, type, placeholder, val) {
-          var input = document.createElement('input');
-          input.name = name;
-          input.type = type;
-          input.placeholder = placeholder;
-          input.value = val ? val : null;
-          return input;
-        }
+        people = people.map(function(e) {
+          return { 'id': e._id, 'name': e.info.name };
+        });
 
-        function addSession(e) {
-          e.stopPropagation();
-          e.preventDefault();
+        $("#sponsors").tokenInput(companies);
+        $("#supporters").tokenInput(companies);
+        $("#speakers").tokenInput(people);
+      });
 
-          var sessionsElm = document.getElementById('sessions');
-          sessions.appendChild(getNode("sessions[" + window.Index.Session + "][title]", "hidden", "title", sessionsElm.children[0].value));
-          sessions.appendChild(getNode("sessions[" + window.Index.Session + "][time]", "hidden", "time", sessionsElm.children[1].value));
-          sessions.appendChild(getNode("sessions[" + window.Index.Session + "][desc]", "hidden", "desc", sessionsElm.children[2].value));
+      window.Index = {
+        Session: 0
+      };
 
-          ++window.Index.Session;
+      function addSession(event) {
+        event.stopPropagation();
 
-          window.Index.People = 0;
-        }
+        ++window.Index.Session;
 
-        function addSponsors(e) {
-          e.stopPropagation();
-          e.preventDefault();
-
-          var sponsorsElm = document.getElementById('sponsors');
-          var dropdownElm = sponsorsElm.children[0];
-          sponsorsElm.appendChild(getNode("sponsors[" + window.Index.Sponsor + "][name]", "hidden", "text", dropdownElm[dropdownElm.selectedIndex].value));
-
-          ++window.Index.Sponsor;
-        }
-
-        function addSupporters(e) {
-          e.stopPropagation();
-          e.preventDefault();
-
-          var supportersElm = document.getElementById('supporters');
-          var dropdownElm = supportersElm.children[0];
-          supportersElm.appendChild(getNode("supporters[" + window.Index.Supporter + "][name]", "hidden", "text", dropdownElm[dropdownElm.selectedIndex].value));
-
-          ++window.Index.Supporter;
-        }
-
-        function addPeople(e) {
-          e.stopPropagation();
-          e.preventDefault();
-
-          var sessionsElm = document.getElementById('sessions');
-          var dropdownElm = document.getElementById('people-dropdown');
-          sessionsElm.appendChild(getNode("sessions[" + window.Index.Session + "]" + "[people][" + window.Index.People + "][name]", "hidden", "text", dropdownElm[dropdownElm.selectedIndex].value));
-
-          ++window.Index.People;
-        }
-      </script>
+        $.get('/admin/js/session_template.hbs').then(function(src) {
+          var template = Handlebars.compile(src)({ index : window.Index.Session});
+          $("#sessions").append(template);
+        });
+      }
+    </script>
   </body>
 </html>
