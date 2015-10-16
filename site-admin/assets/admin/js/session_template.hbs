@@ -1,0 +1,13 @@
+<div id="hidden-template">
+  <label for="title" class="Form__Label">Title</label>
+  <input type="text" name="session[{{{index}}}][title]" class="Form__TextInput"/>
+
+  <label for="time" class="Form__Label">Session Start Time</label>
+  <input type="time" name="session[{{index}}][time]" class="Form__TextInput"/>
+
+  <label for="description" class="Form__Label">Description</label>
+  <textarea type="text" name="session[{{index}}][description]" class="Form__TextArea"></textarea>
+
+  <label for="speakers" class="Form__Label">Speaker</label>
+  <input type="text" id="speakers-{{index}}" name="session[{{index}}][speakers]" class="Form__TextInput"/>
+</div>

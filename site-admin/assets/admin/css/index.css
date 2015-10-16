@@ -1,0 +1,364 @@
+/* Utilities */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Components */
+/* Color Pallete */
+/* Pallete helper methods.*/
+/* Fonts Register */
+/* Text Style Helpers */
+/* Typography Helpers Methods */
+/* Reset Default Typeset. */
+body {
+  font-size: "16px";
+  line-height: 1.4; }
+
+.logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 59px;
+  float: left;
+  z-index: 2; }
+
+.Panel__Navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 60px;
+  padding-top: 29px;
+  box-sizing: border-box;
+  text-align: center;
+  border-bottom: 1px solid;
+  border-color: #EEEEEE;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 1px 0px #ddd; }
+  .Panel__Navigation a {
+    font-family: "Lato";
+    font-weight: 900;
+    font-size: 0.875em;
+    margin: 0px 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.0625em;
+    color: #000000;
+    padding: 6px 5px; }
+    .Panel__Navigation a:hover {
+      color: #27AE60; }
+    .Panel__Navigation a:active {
+      color: #27AE60; }
+  .Panel__Navigation .selected {
+    color: #27AE60;
+    border-bottom: 5px solid; }
+.Panel__Call-to-action {
+  width: 800px;
+  height: auto;
+  margin: auto;
+  margin-top: 60px;
+  padding: 40px 0;
+  padding-left: 380px;
+  box-sizing: border-box;
+  overflow: hidden; }
+.Panel__Timeline {
+  width: 800px;
+  height: auto;
+  margin: auto;
+  overflow: hidden; }
+.Panel__Form {
+  width: 500px;
+  height: auto;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 120px; }
+
+.Button {
+  display: table;
+  width: auto;
+  height: auto;
+  text-align: center;
+  padding: 10px 30px;
+  margin: 30px 0;
+  border-radius: 3px;
+  border: 1px solid;
+  color: #FFFFFF;
+  font-family: "Lato";
+  font-weight: 900;
+  font-size: 0.875em;
+  letter-spacing: 0.055em;
+  text-decoration: none;
+  text-transform: uppercase; }
+  .Button--Success {
+    border-color: #239E57;
+    background-color: #27AE60; }
+  .Button--Danger {
+    border-color: #C0392B;
+    background-color: #E74C3C; }
+  .Button--Neutral {
+    border-color: #2980B9;
+    background-color: #3498DB; }
+
+.Publish {
+  background-color: #fff;
+  color: #27ae60 !important;
+  margin: 0px;
+  position: fixed;
+  right: 0px;
+  clear: both;
+  top: 9px;
+  right: 15px;
+  padding: 10px 30px !important;
+}
+
+/* Fonts Register */
+/* Text Style Helpers */
+/* Typography Helpers Methods */
+/* Reset Default Typeset. */
+body {
+  font-size: "16px";
+  line-height: 1.4; }
+
+/* Color Pallete */
+/* Pallete helper methods.*/
+.Session__Title {
+  margin-bottom: 10px;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 1.125em; }
+.Session__Speaker {
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 1em; }
+  .Session__Speaker-label {
+    font: inherit;
+    font-style: italic; }
+  .Session__Speaker-organization {
+    margin-bottom: 10px;
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 0.875em;
+    color: #808080; }
+.Session__Description {
+  margin-bottom: 30px;
+  font-family: "georgia";
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.5; }
+
+.Speaker {
+  margin-top: 30px;
+  overflow: hidden;
+}
+.Speaker__ProfilePicture {
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+.Speaker__Name {
+  width: auto;
+  margin: 0 0 0 130px;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+.Speaker__DesignationAndWorkplace {
+  margin: 2px 0 0 130px;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #808080;
+}
+
+.Splitter {
+  width: 20%;
+  margin: 30px 0px;
+  border: 0;
+  border-bottom: 1px solid;
+  border-color: #EEEEEE; }
+
+.Sponsors-Supporters {
+  margin-bottom: 20px;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 1em; }
+  .Sponsors-Supporters__Label {
+    margin-right: 10px;
+    font-family: "Lato";
+    font-weight: 700;
+    font-size: 1em; }
+
+/* Fonts Register */
+/* Text Style Helpers */
+/* Typography Helpers Methods */
+/* Reset Default Typeset. */
+body {
+  font-size: "16px";
+  line-height: 1.4; }
+
+/* Color Pallete */
+/* Pallete helper methods.*/
+.Timeline {
+  padding-left: 320px;
+  box-sizing: border-box; }
+
+.Slice {
+  position: relative;
+  padding: 0 0 80px 60px;
+  box-sizing: border-box;
+  border-left: 1px solid;
+  border-color: #EEEEEE; }
+  .Slice__Meta {
+    width: 245px;
+    text-align: right;
+    position: absolute;
+    top: 0px;
+    left: -300px; }
+  .Slice__Ornament {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    border-radius: 16px;
+    border: 1px solid;
+    border-color: #DDDDDD;
+    background-color: #EEEEEE; }
+
+.Meta__Episode {
+  margin-bottom: 20px;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 1.5625em; }
+.Meta__Date {
+  display: block;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 1.125em; }
+.Meta__Time {
+  display: block;
+  margin-bottom: 20px;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 1em;
+  color: #808080; }
+.Meta__Venue {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 1.125em; }
+  .Meta__Venue-address {
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 1em;
+    color: #808080; }
+
+/* Color Pallete */
+/* Pallete helper methods.*/
+/* Fonts Register */
+/* Text Style Helpers */
+/* Typography Helpers Methods */
+/* Reset Default Typeset. */
+body {
+  font-size: "16px";
+  line-height: 1.4; }
+
+.Form input, .Form textarea {
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  font-size: 1em; }
+.Form label {
+  margin-bottom: 10px; }
+.Form__Title {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 1.25em; }
+.Form__Subtitle {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 1em;
+  border-left: 5px solid;
+  border-color: #27AE60;
+  padding-left: 10px;
+  margin: 60px 0 30px 0; }
+.Form__Splitter {
+  border: 0;
+  border-bottom: 1px solid;
+  border-color: #EEEEEE; }
+.Form__Description {
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 0.875em;
+  color: #808080;
+  margin-bottom: 60px; }
+.Form__Label {
+  display: table;
+  text-transform: capitalize;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 0.875em; }
+.Form__TextInput {
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #EEEEEE;
+  outline: none; }
+  .Form__TextInput:focus {
+    border-color: #808080; }
+.Form__TextArea {
+  width: 100%;
+  height: 100px;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #EEEEEE;
+  outline: none; }
+  .Form__TextArea:focus {
+    border-color: #808080; }
+.Form__File {
+  width: 100%; }
+.Form__Button-group {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 60px;
+  text-align: right; }
+  .Form__Button-group .Button {
+    display: table;
+    float: right;
+    margin-left: 30px; }

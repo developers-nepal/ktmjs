@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Admin | KTM.JS | Kathmandu Javscript User Group</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="/admin/css/index.css" type="text/css"/>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.0.beta.6.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/admin/js/jquery.tokeninput.js"></script>
+    <link rel="stylesheet" type="text/css" href="/admin/css/token-input.css" />
+  </head>
+
+  <body>
+    <img src="/admin/images/logo.png" class="logo" alt="ktm.js logo">
+    <nav class="Panel__Navigation">
+      <a class="selected" href="/meetups">Episodes</a>
+      <a href="/people">People</a>
+      <a href="/companies">Organizations</a>
+    </nav>
+
+    <section class="Panel__Form">
+      <form action="/meetups" method="POST" class="Form" name="meetup-form">
+
+        <h1 class="Form__Title">New Episode</h1>
+        <hr class="Form__Splitter"/>
+        <p class="Form__Description">fill up the form to add new episode</p>
+
+        <label for="episode" class="Form__Label">episode</label>
+        <input type="text" name="episode" class="Form__TextInput" value={{episode}} />
+
+        <label for="date" class="Form__Label">date</label>
+        <input type="date" name="date" class="Form__TextInput"/>
+
+        <label for="start_time" class="Form__Label">start time</label>
+        <input type="time" name="startsAt" class="Form__TextInput"/>
+
+        <label for="end_time" class="Form__Label">end time</label>
+        <input type="time" name="endsAt" class="Form__TextInput"/>
+
+        <h2 class="Form__Subtitle">Venue Details</h2>
+
+        <label for="venue" class="Form__Label">Organization Name</label>
+        <input type="text" name="venue[organisation]" class="Form__TextInput"/>
+
+        <label for="address_1" class="Form__Label">Organization Address 1</label>
+        <input type="text" name="venue[addr_line1]" class="Form__TextInput"/>
+
+        <label for="address_2" class="Form__Label">Organization Address 2</label>
+        <input type="text" name="venue[addr_line2]" class="Form__TextInput"/>
+
+        <h2 class="Form__Subtitle">Session Details</h2>
+
+        <div id="sessions">
+          <label for="title" class="Form__Label">Title</label>
+          <input type="text" name="session[0][title]" class="Form__TextInput"/>
+
+          <label for="time" class="Form__Label">Session Start Time</label>
+          <input type="time" name="session[0][time]" class="Form__TextInput"/>
+
+          <label for="description" class="Form__Label">Description</label>
+          <textarea type="text" name="session[0][description]" class="Form__TextArea"></textarea>
+
+          <label for="speakers" class="Form__Label">Speaker</label>
+          <input type="text" id="speakers" name="session[0][speakers]" class="Form__TextInput"/>
+        </div>
+        <button type="button" onclick="return addSession(event);" class="Button Button--Neutral">+ Add another session</button>
+
+        <h2 class="Form__Subtitle">Sponsors & Supporters</h2>
+        <label for="sponsors" class="Form__Label">Sponsors</label>
+        <input type="text" id="sponsors" name="sponsors" class="Form__TextInput"/>
+
+        <label for="supporters" class="Form__Label">Supporters</label>
+        <input type="text" id="supporters" name="supporters" class="Form__TextInput"/>
+
+        <section class="Form__Button-group">
+          <button type="submit" class="Button Button--Success">Save</button>
+          <button class="Button Button--Danger">Cancel</button>
+        </section>
+
+      </form>
+    </section>
+    <script>
+      function getCompanyList() {
+        var companies = {{{json companies}}};
+
+        return companies.map(function(e) {
+          return { 'id': e._id, 'name': e.info.name };
+        });
+      }
+
+      function getPeopleList() {
+        var people = {{{json people}}};
+
+        return people.map(function(e) {
+          return { 'id': e._id, 'name': e.info.name };
+        });
+      }
+
+      $(document).ready(function () {
+        var companies = getCompanyList();
+        var people = getPeopleList();
+
+        $("#sponsors").tokenInput(companies);
+        $("#supporters").tokenInput(companies);
+        $("#speakers").tokenInput(people);
+      });
+
+      window.Index = {
+        Session: 0
+      };
+
+      function addSession(event) {
+        event.stopPropagation();
+
+        var companies = getCompanyList();
+        var people = getPeopleList();
+
+        ++window.Index.Session;
+
+        $.get('/admin/js/session_template.hbs').then(function(src) {
+          var template = Handlebars.compile(src)({ index : window.Index.Session});
+          $("#sessions").append(template);
+
+          $("#speakers-" + window.Index.Session).tokenInput(people);
+        });
+      }
+    </script>
+  </body>
+</html>

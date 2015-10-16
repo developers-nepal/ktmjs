@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>KTM.JS | Kathmandu Javscript User Group</title>
+  <meta name="HandheldFriendly" content="true"/>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes"/>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'/>
+  <link rel="stylesheet" href="css/index.css" type="text/css"/>
+</head>
+<body>
+    <div class="Panel__Navigation">
+      <img class="logo" src="images/logo.png" alt="Kathmandu JS User Group Logo" />
+    </div>
+
+    <div class="Panel__Meetup">
+      <div class="Meetup">
+        <h1 class="Meetup__Name">Kathmandu Javascript Meetup</h1>
+        <p class="Meetup__Episode">/Episode {{episode}}, {{year}}</p>
+
+        <date class="Meetup__Date">{{month}} {{day}}</date>
+        <date class="Meetup__Time">
+        {{startsAtHr}}<span class="Meetup__Time--thin">:{{startsAtMin}}{{startsAtAMPM}}</span>
+         - {{endsAtHr}}<span class="Meetup__Time--thin">:{{endsAtMin}}{{endsAtAMPM}}</span>
+        </date>
+
+        <h2 class="Meetup__Venue">{{venue.organisation}}</h2>
+        <p class="Meetup__Address">{{venue.addr_line1}}<br/>{{venue.addr_line1}}</p>
+
+        <img class="Meetup__Ornament" src="images/flower.png" alt="flower"/>
+      </div>
+    </div>
+
+      <div class="Panel__Schedule">
+        <ol class="Sessions">
+          {{#each session}}
+          <li class="Session">
+            <h3 class="Session__Number">session #{{@index}}</h3>
+            <hr class="Session__Splitter"/>
+
+            <h2 class="Session__Title">{{title}}</h2>
+            <p class="Session__Time">@ {{time}}</p>
+
+            <p class="Session__description">
+              {{desc}}
+            </p>
+
+            <ol class="Speakers Session__Speaker">
+              {{#each speakers}}
+              <li class="Speaker">
+                <img class="Speaker__ProfilePicture" src={{file.path}} alt="profile picture"/>
+                <h2 class="Speaker__Name">{{info.name}}</h2>
+                <p class="Speaker__DesignationAndWorkplace">{{info.designation}} at {{info.company}}</p>
+              </li>
+              {{~/each}}
+            </ol>
+          </li>
+          {{~/each}}
+        </ol>
+
+        <div class="Panel__SponsorsAndSupporters">
+          <h2 class="SponsorsAndSupporters__Heading">Sponsors</h2>
+          <ol class="Sponsors">
+            {{#each sponsors}}
+            <li class="Sponsor"><img class="Sponsor__Logo" src={{file.path}} alt="company 1" /></li>
+            {{~/each}}
+          </ol>
+          <hr class="SponsorsAndSupporters__Splitter"/>
+          <h2 class="SponsorsAndSupporters__Heading">Supporters</h2>
+          <ol class="Supporters">
+            {{#each supporters}}
+            <li class="Supporter"><img class="Supporter__Logo" src={{file.path}} alt="company 2" /></li>
+            {{~/each}}
+          </ol>
+        </div>
+
+        <img class="chandra" src="images/chandra.png" alt="chandra logo" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>

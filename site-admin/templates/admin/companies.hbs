@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Admin | KtmJS</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="/admin/css/index.css" type="text/css"/>
+  </head>
+
+  <body>
+    <img src="/admin/images/logo.png" class="logo" alt="ktm.js logo">
+    <nav class="Panel__Navigation">
+      <a href="/meetups">Episodes</a>
+      <a href="/people">People</a>
+      <a class="selected" href="/companies">Organizations</a>
+    </nav>
+
+    <section class="Panel__Form">
+      <form action="/upload" method="POST" class="Form" enctype="multipart/form-data">
+
+        <h1 class="Form__Title">New Organization</h1>
+        <hr class="Form__Splitter"/>
+        <p class="Form__Description">fill up the form to add new organization to the community</p>
+
+        <label for="name" class="Form__Label">Name</label>
+        <input type="text" name="name" class="Form__TextInput"/>
+
+        <label for="address_1" class="Form__Label">Address 1</label>
+        <input type="text" name="address_1" class="Form__TextInput"/>
+
+        <label for="phone_number" class="Form__Label">Phone Number</label>
+        <input type="text" name="phone_number" class="Form__TextInput"/>
+
+        <label for="email" class="Form__Label">Email</label>
+        <input type="text" name="email" class="Form__TextInput"/>
+
+        <label for="website" class="Form__Label">Website</label>
+        <input type="text" name="website" class="Form__TextInput"/>
+
+        <label for="about" class="Form__Label">About</label>
+        <textarea name="about" class="Form__TextArea"/></textarea>
+
+        <label for="logo" class="Form__Label">Logo</label>
+        <input type="hidden" name="for" value="companies" />
+        <input type="file" name="image" class="Form__File"/>
+
+        <label for="twitter" class="Form__Label">Twitter</label>
+        <input type="text" name="twitter" class="Form__TextInput"/>
+
+        <label for="github" class="Form__Label">Github</label>
+        <input type="text" name="github" class="Form__TextInput"/>
+
+        <label for="facebook" class="Form__Label">Facebook</label>
+        <input type="text" name="facebook" class="Form__TextInput"/>
+
+        <section class="Form__Button-group">
+          <button type="submit" class="Button Button--Success">Save</button>
+          <button class="Button Button--Danger">Cancel</button>
+        </section>
+
+      </form>
+    </section>
+</body>
+</html>

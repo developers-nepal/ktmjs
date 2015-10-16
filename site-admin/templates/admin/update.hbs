@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Admin | KtmJS</title>
+    <link rel="stylesheet" href="/admin/css/admin.css" type="text/css"/>
+  </head>
+
+  <body>
+    <div class="Panel__Navigation">
+      <img class="logo" src="/admin/images/logo.png" alt="Kathmandu JS User Group Logo" />
+      <ul class="Navigation">
+        <li><a href="/">Meetups</a></li>
+        <li><a href="/companies">Companies</a></li>
+        <li><a href="/people">People</a></li>
+      </ul>
+    </div>
+
+    <div class="Panel__Timeline">
+      <form action="/update/{{_id}}" method="post">
+        <input type="text" placeholder="episode" name="episode" value={{episode}} />
+        <input type="date" placeholder="date" name="date" value={{date}} />
+        <h5>Starting time</h5>
+        <input type="time" placeholder="starting time" name="startsAt" value={{startsAt}} />
+        <h5>Ending time</h5>
+        <input type="time" placeholder="ending time" name="endsAt" value={{endsAt}} />
+
+        <h4>Venue</h4>
+        <input type="text" placeholder="Organisation" name="venue[organisation]" value={{venue.organisation}} />
+        <input type="text" placeholder="Address Line 1" name="venue[addr_line1]" value={{venue.addr_line1}} />
+        <input type="text" placeholder="Address Line 2" name="venue[addr_line2]" value={{venue.addr_line2}} />
+
+        <h4>Sessions</h4>
+        <div id="sessions">
+          {{#each sessions}}
+          <input type="text" placeholder="title" value={{title}}>
+          <input type="time" placeholder="time"  value={{time}}>
+          <input type="text" placeholder="desc"  value={{desc}}>
+          {{~/each}}
+
+          <input type="text" placeholder="title">
+          <input type="text" placeholder="time">
+          <input type="text" placeholder="desc">
+          {{{dropdown "people"}}}
+          <button onclick="return addPeople(event);">Add People</button>
+        </div>
+        <button onclick="return addSession(event);">Add Session</button>
+
+        <h4>Sponsors</h4>
+        <div id="sponsors">
+          {{{dropdown "companies"}}}
+        </div>
+        <button onclick="return addSponsors(event);">Add Sponsors</button>
+
+        <h4>Supporters</h4>
+        <div id="supporters">
+          {{{dropdown "companies"}}}
+        </div>
+        <button onclick="return addSupporters(event);">Add Supporters</button>
+
+        <input type="submit" value="Update" />
+      </form>
+
+      <script>
+        window.Index = {
+          Session: {{sessions.length}},
+          People: 0,
+          Sponsor: 0,
+          Supporter: 0
+        };
+
+        function getNode(name, type, placeholder, val) {
+          var input = document.createElement('input');
+          input.name = name;
+          input.type = type;
+          input.placeholder = placeholder;
+          input.value = val ? val : null;
+          return input;
+        }
+
+        function addSession(e) {
+          e.stopPropagation();
+          e.preventDefault();
+
+          var sessionsElm = document.getElementById('sessions');
+          console.log('hey what', sessionsElm);
+          sessions.appendChild(getNode("sessions[" + window.Index.Session + "][title]", "hidden", "title", sessionsElm.children[0].value));
+          sessions.appendChild(getNode("sessions[" + window.Index.Session + "][time]", "hidden", "time", sessionsElm.children[1].value));
+          sessions.appendChild(getNode("sessions[" + window.Index.Session + "][desc]", "hidden", "desc", sessionsElm.children[2].value));
+
+          ++window.Index.Session;
+
+          window.Index.People = 0;
+        }
+
+        function addSponsors(e) {
+          e.stopPropagation();
+          e.preventDefault();
+
+          var sponsorsElm = document.getElementById('sponsors');
+          var dropdownElm = sponsorsElm.children[0];
+          sponsorsElm.appendChild(getNode("sponsors[" + window.Index.Sponsor + "][name]", "hidden", "text", dropdownElm[dropdownElm.selectedIndex].value));
+
+          ++window.Index.Sponsor;
+        }
+
+        function addSupporters(e) {
+          e.stopPropagation();
+          e.preventDefault();
+
+          var supportersElm = document.getElementById('supporters');
+          var dropdownElm = supportersElm.children[0];
+          supportersElm.appendChild(getNode("supporters[" + window.Index.Supporter + "][name]", "hidden", "text", dropdownElm[dropdownElm.selectedIndex].value));
+
+          ++window.Index.Supporter;
+        }
+
+        function addPeople(e) {
+          e.stopPropagation();
+          e.preventDefault();
+
+          var sessionsElm = document.getElementById('sessions');
+          var dropdownElm = document.getElementById('people-dropdown');
+          sessionsElm.appendChild(getNode("sessions[" + window.Index.Session + "]" + "[people][" + window.Index.People + "][name]", "hidden", "text", dropdownElm[dropdownElm.selectedIndex].value));
+
+          ++window.Index.People;
+        }
+      </script>
+  </body>
+</html>
