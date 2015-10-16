@@ -69,8 +69,14 @@ router.get('/delete/:id', function(req, res) {
 router.post('/', function(req, res) {
   var params = req.body;
 
-  delete req.body.people;
-  delete req.body.companies;
+  params.sponsors = params.sponsors ? params.sponsors.split(',') : null;
+  params.supporters = params.supporters ? params.supporters.split(',') : null;
+
+  if (params.session) {
+    params.session.forEach(function(s) {
+      s.speakers = s.speakers ? s.speakers.split(',') : null;
+    })
+  }
 
   db.meetups.insert(params, function(err, NewDoc) {
     res.redirect('/meetups');
@@ -96,12 +102,12 @@ router.get('/', function(req, res) {
           _formatDate(e, "startsAt", "startsAtHr", "startsAtMin", "startsAtAMPM");
           _formatDate(e, "endsAt", "endsAtHr", "endsAtMin", "endsAtAMPM");
 
-          if (e.sessions) {
-            e.sessions.forEach(function(s) {
+          if (e.session) {
+            e.session.forEach(function(s) {
               var _startingAt = moment(s.time, "HH:mm");
               s.time = s.time + _startingAt.format('a');
 
-              _populate(s, "people", _people);
+              _populate(s, "speakers", _people);
             });
           }
 

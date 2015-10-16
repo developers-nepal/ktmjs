@@ -30,16 +30,16 @@
         </section>
 
         <section class="Slice__Details">
-          {{#each sessions}}
+          {{#each session}}
           <article class="Session">
             <h2 class="Session__Title">{{title}}</h2>
 
-            {{#each people}}
-            <p class="Session__Speaker"><span class="Session__Speaker-label">Speaker - </span>{{data.info.name}}</p>
-            <p class="Session__Speaker-organization">{{data.info.designation}} at {{data.info.company}}.</p>
+            {{#each speakers}}
+            <p class="Session__Speaker"><span class="Session__Speaker-label">Speaker - </span>{{info.name}}</p>
+            <p class="Session__Speaker-organization">{{info.designation}} at {{info.company}}.</p>
             {{~/each}}
 
-            <p class="Session__Description">{{desc}}</p>
+            <p class="Session__Description">{{description}}</p>
           </article>
           {{~/each}}
 
@@ -48,14 +48,14 @@
           <p class="Sponsors-Supporters">
             <span class="Sponsors-Supporters__Label">Sponsors: </span>
             {{#each sponsors}}
-            {{data.info.title}},
+            {{info.title}},
             {{~/each}}
           </p>
 
           <p class="Sponsors-Supporters">
             <span class="Sponsors-Supporters__Label">Supported by: </span>
             {{#each supporters}}
-            {{data.info.title}}
+            {{info.title}}
             {{~/each}}
           </p>
         </section>

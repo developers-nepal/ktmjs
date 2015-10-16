@@ -44,12 +44,12 @@ router.get('/', function(req, res) {
           _formatDate(e, "startsAt", "startsAtHr", "startsAtMin", "startsAtAMPM");
           _formatDate(e, "endsAt", "endsAtHr", "endsAtMin", "endsAtAMPM");
 
-          if (e.sessions) {
-            e.sessions.forEach(function(s) {
+          if (e.session) {
+            e.session.forEach(function(s) {
               var _startingAt = moment(s.time, "HH:mm");
               s.time = s.time + _startingAt.format('a');
 
-              _populate(s, "people", _people);
+              _populate(s, "speakers", _people);
             });
           }
 

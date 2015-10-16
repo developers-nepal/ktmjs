@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Admin - New episode | KTM.JS | Kathmandu Javscript User Group</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="admin/css/index.css" type="text/css"/>
+  </head>
+
+  <body>
+    <img src="admin/images/logo.png" class="logo" alt="ktm.js logo">
+    <nav class="Panel__Navigation">
+      <a href="/meetups">Episodes</a>
+      <a href="/people">People</a>
+      <a class="selected" href="/companies">Organizations</a>
+    </nav>
+
+    <section class="Panel__Call-to-action">
+      <a href="/companies/form" class="Button Button--Success">Add new company</a>
+    </section>
+
+    <section class="Panel__Timeline Timeline">
+      <ol class="Session__Speaker">
+        {{#each companies}}
+        <li class="Speaker">
+          <img class="Speaker__ProfilePicture" src="admin/images/companies/{{file.filename}}" alt="profile picture">
+          <h2 class="Speaker__Name">{{info.name}}</h2>
+          <p class="Speaker__DesignationAndWorkplace">{{info.website}}</p>
+        </li>
+        {{~/each}}
+      </ol>
+    </section>
+  </body>
+</html>

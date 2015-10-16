@@ -22,12 +22,15 @@ function _populate(e, field, db) {
     return index;
   }
 
+  var _tmp = [];
   e[field] && e[field].forEach(function(s) {
-    var index = findAt(db, s.name);
+    var index = findAt(db, s);
     if (index >= 0) {
-      s.data = db[index]
+      _tmp.push(db[index])
     }
   });
+
+  e[field] = _tmp;
 }
 
 exports.formatDate = _formatDate;
