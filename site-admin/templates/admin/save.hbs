@@ -81,17 +81,25 @@
       </form>
     </section>
     <script>
-      $(document).ready(function () {
+      function getCompanyList() {
         var companies = {{{json companies}}};
-        var people = {{{json people}}};
 
-        companies = companies.map(function(e) {
-          return { 'id': e._id, 'name': e.info.title };
-        });
-
-        people = people.map(function(e) {
+        return companies.map(function(e) {
           return { 'id': e._id, 'name': e.info.name };
         });
+      }
+
+      function getPeopleList() {
+        var people = {{{json people}}};
+
+        return people.map(function(e) {
+          return { 'id': e._id, 'name': e.info.name };
+        });
+      }
+
+      $(document).ready(function () {
+        var companies = getCompanyList();
+        var people = getPeopleList();
 
         $("#sponsors").tokenInput(companies);
         $("#supporters").tokenInput(companies);
@@ -105,11 +113,16 @@
       function addSession(event) {
         event.stopPropagation();
 
+        var companies = getCompanyList();
+        var people = getPeopleList();
+
         ++window.Index.Session;
 
         $.get('/admin/js/session_template.hbs').then(function(src) {
           var template = Handlebars.compile(src)({ index : window.Index.Session});
           $("#sessions").append(template);
+
+          $("#speakers-" + window.Index.Session).tokenInput(people);
         });
       }
     </script>

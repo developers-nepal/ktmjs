@@ -31,7 +31,7 @@
 
       <div class="Panel__Schedule">
         <ol class="Sessions">
-          {{#each sessions}}
+          {{#each session}}
           <li class="Session">
             <h3 class="Session__Number">session #{{@index}}</h3>
             <hr class="Session__Splitter"/>
@@ -44,11 +44,11 @@
             </p>
 
             <ol class="Speakers Session__Speaker">
-              {{#each people}}
+              {{#each speakers}}
               <li class="Speaker">
-                <img class="Speaker__ProfilePicture" src={{data.file.path}} alt="profile picture"/>
-                <h2 class="Speaker__Name">{{data.info.name}}</h2>
-                <p class="Speaker__DesignationAndWorkplace">{{data.info.designation}} at {{data.info.company}}</p>
+                <img class="Speaker__ProfilePicture" src={{file.path}} alt="profile picture"/>
+                <h2 class="Speaker__Name">{{info.name}}</h2>
+                <p class="Speaker__DesignationAndWorkplace">{{info.designation}} at {{info.company}}</p>
               </li>
               {{~/each}}
             </ol>
@@ -60,14 +60,14 @@
           <h2 class="SponsorsAndSupporters__Heading">Sponsors</h2>
           <ol class="Sponsors">
             {{#each sponsors}}
-            <li class="Sponsor"><img class="Sponsor__Logo" src={{data.file.path}} alt="company 1" /></li>
+            <li class="Sponsor"><img class="Sponsor__Logo" src={{file.path}} alt="company 1" /></li>
             {{~/each}}
           </ol>
           <hr class="SponsorsAndSupporters__Splitter"/>
           <h2 class="SponsorsAndSupporters__Heading">Supporters</h2>
           <ol class="Supporters">
             {{#each supporters}}
-            <li class="Supporter"><img class="Supporter__Logo" src={{data.file.path}} alt="company 2" /></li>
+            <li class="Supporter"><img class="Supporter__Logo" src={{file.path}} alt="company 2" /></li>
             {{~/each}}
           </ol>
         </div>
