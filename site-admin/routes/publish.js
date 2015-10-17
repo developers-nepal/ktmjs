@@ -14,6 +14,8 @@ var _populate = require('../utils.js').populate;
 
 function _publish(episodes) {
   episodes && episodes.forEach(function(episode) {
+    episode.URL =  "https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin";
+
     var hbsTemplate = fs.readFileSync(path.join(__dirname, '../templates/site/index.hbs')).toString();
     var template = handlebars.compile(hbsTemplate);
     var htmlTemplate = template(episode);
@@ -44,11 +46,14 @@ router.get('/', function(req, res) {
           _formatDate(e, "startsAt", "startsAtHr", "startsAtMin", "startsAtAMPM");
           _formatDate(e, "endsAt", "endsAtHr", "endsAtMin", "endsAtAMPM");
 
+          e.endsAtHr = e.endsAtHr > 12 ? e.endsAtHr - 12 : e.endsAtHr;
+
           if (e.session) {
-            e.session.forEach(function(s) {
+            e.session.forEach(function(s, idx) {
               var _startingAt = moment(s.time, "HH:mm");
               s.time = s.time + _startingAt.format('a');
 
+              s.index = idx + 1;
               _populate(s, "speakers", _people);
             });
           }

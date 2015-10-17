@@ -110,7 +110,6 @@ router.get('/', function(req, res) {
               _populate(s, "speakers", _people);
             });
           }
-
           /* populate with values from db */
           _populate(e, "sponsors", _companies);
           _populate(e, "supporters", _companies);
