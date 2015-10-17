@@ -13,7 +13,7 @@
 ```
 fork our ktmjs repository.
 
-$ git clone git@github.com:developers-nepal/ktmjs.git
+$ git clone git@github.com:[your-github-id]/ktmjs.git
 $ cd site-admin
 $ npm install
 $ node ktm.js 
@@ -27,7 +27,7 @@ Please refer issues (marked as community responsibility) for contribution.
 - fork our ktmjs repository.
 - run the admin interface
 ```
-$ git@github.com:developers-nepal/ktmjs.git
+$ git@github.com:[your-github-id]/ktmjs.git
 $ cd site-admin
 $ npm install
 $ node ktm.js
@@ -42,7 +42,7 @@ Follow these steps to publish a meetup.
 1. fork our ktmjs repository
 
 2. run admin panel
-	$ git clone git@github.com:developers-nepal/ktmjs.git
+	$ git clone git@github.com:[your-github-id]/ktmjs.git
 	$ cd site-admin
 	$ npm install
 	$ node ktm.js 
