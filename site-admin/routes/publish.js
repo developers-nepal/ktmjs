@@ -14,6 +14,8 @@ var _populate = require('../utils.js').populate;
 
 function _publish(episodes) {
   episodes && episodes.forEach(function(episode) {
+    episode.URL =  "https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin";
+
     var hbsTemplate = fs.readFileSync(path.join(__dirname, '../templates/site/index.hbs')).toString();
     var template = handlebars.compile(hbsTemplate);
     var htmlTemplate = template(episode);

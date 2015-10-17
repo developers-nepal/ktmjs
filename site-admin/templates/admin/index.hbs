@@ -37,7 +37,7 @@
 
             {{#each speakers}}
             <p class="Session__Speaker"><span class="Session__Speaker-label">Speaker - </span>{{info.name}}</p>
-            <p class="Session__Speaker-organization">{{info.designation}} at {{info.company}}.</p>
+            <p class="Session__Speaker-organization">{{info.designation}} at {{info.organization}}.</p>
             {{~/each}}
 
             <p class="Session__Description">{{description}}</p>
@@ -49,14 +49,14 @@
           <p class="Sponsors-Supporters">
             <span class="Sponsors-Supporters__Label">Sponsors: </span>
             {{#each sponsors}}
-            {{info.title}},
+            {{info.name}},
             {{~/each}}
           </p>
 
           <p class="Sponsors-Supporters">
             <span class="Sponsors-Supporters__Label">Supported by: </span>
             {{#each supporters}}
-            {{info.title}}
+            {{info.name}}
             {{~/each}}
           </p>
         </section>

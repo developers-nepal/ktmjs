@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="Panel__Navigation">
-      <img class="logo" src="images/logo.png" alt="Kathmandu JS User Group Logo" />
+      <img class="logo" src="{{URL}}/assets/site/images/logo.png" alt="Kathmandu JS User Group Logo" />
     </div>
 
     <div class="Panel__Meetup">
@@ -23,9 +23,9 @@
         </date>
 
         <h2 class="Meetup__Venue">{{venue.organisation}}</h2>
-        <p class="Meetup__Address">{{venue.addr_line1}}<br/>{{venue.addr_line1}}</p>
+        <p class="Meetup__Address">{{venue.addr_line1}}<br/>{{venue.addr_line2}}</p>
 
-        <img class="Meetup__Ornament" src="images/flower.png" alt="flower"/>
+        <img class="Meetup__Ornament" src="{{URL}}/assets/site/images/flower.png" alt="flower"/>
       </div>
     </div>
 
@@ -46,9 +46,9 @@
             <ol class="Speakers Session__Speaker">
               {{#each speakers}}
               <li class="Speaker">
-                <img class="Speaker__ProfilePicture" src={{file.path}} alt="profile picture"/>
+                <img class="Speaker__ProfilePicture" src="{{../../URL}}/{{file.path}}" alt="profile picture"/>
                 <h2 class="Speaker__Name">{{info.name}}</h2>
-                <p class="Speaker__DesignationAndWorkplace">{{info.designation}} at {{info.company}}</p>
+                <p class="Speaker__DesignationAndWorkplace">{{info.designation}} at {{info.organization}}</p>
               </li>
               {{~/each}}
             </ol>
@@ -60,14 +60,14 @@
           <h2 class="SponsorsAndSupporters__Heading">Sponsors</h2>
           <ol class="Sponsors">
             {{#each sponsors}}
-            <li class="Sponsor"><img class="Sponsor__Logo" src={{file.path}} alt="company 1" /></li>
+            <li class="Sponsor"><img class="Sponsor__Logo" src="{{../URL}}/{{file.path}}" alt="company 1" /></li>
             {{~/each}}
           </ol>
           <hr class="SponsorsAndSupporters__Splitter"/>
           <h2 class="SponsorsAndSupporters__Heading">Supporters</h2>
           <ol class="Supporters">
             {{#each supporters}}
-            <li class="Supporter"><img class="Supporter__Logo" src={{file.path}} alt="company 2" /></li>
+            <li class="Supporter"><img class="Supporter__Logo" src="{{../URL}}/{{file.path}}" alt="company 2" /></li>
             {{~/each}}
           </ol>
         </div>
