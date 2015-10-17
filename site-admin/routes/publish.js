@@ -46,11 +46,14 @@ router.get('/', function(req, res) {
           _formatDate(e, "startsAt", "startsAtHr", "startsAtMin", "startsAtAMPM");
           _formatDate(e, "endsAt", "endsAtHr", "endsAtMin", "endsAtAMPM");
 
+          e.endsAtHr = e.endsAtHr > 12 ? e.endsAtHr - 12 : e.endsAtHr;
+
           if (e.session) {
-            e.session.forEach(function(s) {
+            e.session.forEach(function(s, idx) {
               var _startingAt = moment(s.time, "HH:mm");
               s.time = s.time + _startingAt.format('a');
 
+              s.index = idx + 1;
               _populate(s, "speakers", _people);
             });
           }
