@@ -37,6 +37,16 @@ table {
   border-spacing: 0; }
 
 /* Components */
+/* Fonts Register */
+/* Text Style Helpers */
+/* Typography Helpers Methods */
+/* Reset Default Typeset. */
+body {
+  font-size: "16px";
+  line-height: 1.4; }
+
+/* Color Pallete */
+/* Pallete helper methods.*/
 .logo {
   width: 125px; }
 
@@ -154,7 +164,19 @@ table {
 
 .chandra {
   width: 38px;
-  margin-bottom: 115px; }
+  margin-bottom: 50px; }
+
+.credits {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 0.875em;
+  color: #AAAAAA;
+  margin-bottom: 50px; }
+  .credits a {
+    text-decoration: underline;
+    color: #AAAAAA; }
+    .credits a:hover {
+      color: #27AE60 !important; }
 
 /* Fonts Register */
 /* Text Style Helpers */
@@ -317,11 +339,15 @@ body {
 .Sponsors {
   margin-left: 150px; }
 
-.Sponsor__Logo {
-  width: 125px; }
+.Sponsor {
+  margin-bottom: 20px; }
+  .Sponsor__Logo {
+    width: 125px; }
 
 .Supporters {
   margin-left: 150px; }
 
-.Supporter__Logo {
-  width: 125px; }
+.Supporter {
+  margin-bottom: 20px; }
+  .Supporter__Logo {
+    width: 125px; }
