@@ -37,8 +37,10 @@ $ node ktm.js
 Follow these steps to publish a meetup. 
 
 ```
-1. run admin panel
-	$ git@github.com:developers-nepal/ktmjs.git
+1. fork our ktmjs repository
+
+2. run admin panel
+	$ git clone git@github.com:developers-nepal/ktmjs.git
 	$ cd site-admin
 	$ npm install
 	$ node ktm.js 
