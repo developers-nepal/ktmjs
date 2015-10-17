@@ -11,7 +11,9 @@
 
 #### How do i run admin panel?
 ```
-$ git@github.com:developers-nepal/ktmjs.git
+fork our ktmjs repository.
+
+$ git clone git@github.com:developers-nepal/ktmjs.git
 $ cd site-admin
 $ npm install
 $ node ktm.js 
