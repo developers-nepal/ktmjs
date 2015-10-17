@@ -41,7 +41,7 @@ Follow these steps to publish a meetup.
 	$ git@github.com:developers-nepal/ktmjs.git
 	$ cd site-admin
 	$ npm install
-	$ node ktmjs 
+	$ node ktm.js 
 	
 	/* it opens a browser, you can also open it in any browser on http://localhost:3000/meetups */
 
