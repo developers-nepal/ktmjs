@@ -65,3 +65,23 @@ Follow these steps to publish a meetup.
 	$ npm deploy 
 ```
 
+## Admin directory structure
+```
+/assets 
+  /admin/images/people 			: people images which are refrenced in website
+  /admin/images/companies 		: organization images which are refrenced in website 
+  /admin/css					: css for admin interface
+  /admin/js						: js for admin interface
+  
+  /site/css						: css for site
+  /site/images					: images for site
+/db 							: database location
+/routes 						: express js routes for meetups, people ...
+/templates 
+	/admin 						: admin templates
+	/site 						: site templates
+db.js 							: has database instance
+utils.js 						: has utility functions
+ktm.js 							: has express js configurations and server instance (main file)
+package.json 					: npm file
+```
