@@ -1,4 +1,4 @@
-# [KTM.JS](developers-nepal.github.io/ktmjs)
+# [KTM.JS](http://developers-nepal.github.io/ktmjs)
 ### Kathmandu Javascript user group.
 
 >Try to be a rainbow in someone's cloud. - Maya Angelou
