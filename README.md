@@ -91,7 +91,7 @@ package.json 					: npm file
 ```
 ## Contributions
 - [@jaisonjustus](https://github.com/jaisonjustus)
-- [@prashishh](https://github.com/prashishh)
 - [@parewa-punit](https://github.com/parewa-punit)
 - [@parewa-ranjit](https://github.com/parewa-ranjit)
+- [@prashishh](https://github.com/prashishh)
 - [@rabishah](https://github.com/rabishah)
