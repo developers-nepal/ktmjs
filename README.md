@@ -94,4 +94,4 @@ package.json 					: npm file
 - [@prashishh](https://github.com/prashishh)
 - [@parewa-punit](https://github.com/parewa-punit)
 - [@parewa-ranjit](https://github.com/parewa-ranjit)
-- [@rabishah](https://github.com/orgs/rabishah)
+- [@rabishah](https://github.com/rabishah)
