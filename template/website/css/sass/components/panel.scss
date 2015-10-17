@@ -1,4 +1,6 @@
 @import 'base/viewport';
+@import 'base/typography';
+@import 'base/pallete';
 
 .logo {
   width: 125px;
@@ -145,5 +147,20 @@ body {
 
 .chandra {
   width: 38px;
-  margin-bottom: 115px;
+  margin-bottom: 50px;
+}
+
+.credits  {
+  @include font('lato', 'bold', em(14));
+  @include color('silva');
+  margin-bottom: 50px;
+
+  a {
+    text-decoration: underline;
+    @include color('silva');
+
+    &:hover {
+      @include color('vicious', 'color', true);
+    }
+  }
 }
