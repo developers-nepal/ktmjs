@@ -66,7 +66,7 @@ Follow these steps to publish a meetup.
 	- rename upcoming meetup as index.html
 
 6. deploy to gh-pages
-	$ npm run deploy
+	$ merge your branch to master it will automatically deploy  
 ```
 
 ## Admin directory structure
