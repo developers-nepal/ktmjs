@@ -57,16 +57,10 @@ Follow these steps to publish a meetup.
 3. commit your changes
 	- git add  
 	- git commit
-	- git push origin master
+	- git push origin develop
 
-4. copy css file to dist folder
-	$ cp assets/site/css/index.css dist/css/
+4. get peer reviewed and merge to master
 
-5. in dist folder, you will see list of html files
-	- rename upcoming meetup as index.html
-
-6. deploy to gh-pages
-	$ merge your branch to master it will automatically deploy  
 ```
 
 ## Admin directory structure
