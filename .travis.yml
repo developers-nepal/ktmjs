@@ -10,10 +10,6 @@ cache:
 before_script:
   - cp -rf site-admin/assets/site/css/index.css site-admin/dist/css/
 
-script:
-  - cd site-admin && npm run deploy
-
-
 deploy:
   provider: pages
   skip_cleanup: true
