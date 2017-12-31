@@ -2,13 +2,13 @@ language: node_js
 
 node_js:
   - "stable"
-  
+
 cache:
   directories:
   - node_modules
 
 before_script:
-  - cp -rf assets/site/css/index.css dist/css/
+  - cp -rf site-admin/assets/site/css/index.css site-admin/dist/css/
 
 script:
   - npm run deploy
@@ -17,6 +17,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $github_token
-  local_dir: build
+  local_dir: site-admin/build
   on:
     branch: master
