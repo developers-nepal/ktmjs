@@ -1,7 +1,10 @@
+sudo: required
+dist: trusty
 language: node_js
 
 node_js:
-  - "stable"
+  # LTS version
+  - "8.9.0"
 
 cache:
   directories:
