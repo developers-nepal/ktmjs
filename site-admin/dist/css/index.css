@@ -1,0 +1,353 @@
+/* Utilities */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Components */
+/* Fonts Register */
+/* Text Style Helpers */
+/* Typography Helpers Methods */
+/* Reset Default Typeset. */
+body {
+  font-size: "16px";
+  line-height: 1.4; }
+
+/* Color Pallete */
+/* Pallete helper methods.*/
+.logo {
+  width: 125px; }
+
+@media only screen and (min-width: 320px) {
+  body {
+    font-size: 11px !important; } }
+
+@media only screen and (min-width: 320px) {
+  .Panel__Navigation {
+    width: 100%;
+    height: auto;
+    margin-bottom: 60px; } }
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .Panel__Navigation {
+    margin-bottom: 35px; } }
+@media only screen and (min-width: 992px) {
+  .Panel__Navigation {
+    width: 125px;
+    height: auto;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    margin: 0px; } }
+@media only screen and (min-width: 320px) {
+  .Panel__Meetup {
+    width: 100%;
+    height: auto;
+    margin-bottom: 80px;
+    padding: 0 25px 0 0;
+    box-sizing: border-box; } }
+@media only screen and (min-width: 480px) and (orientation: portrait) {
+  .Panel__Meetup {
+    width: 100%;
+    height: auto;
+    margin-bottom: 80px;
+    padding: 0 60px 0 0;
+    box-sizing: border-box; } }
+@media only screen and (min-width: 600px) and (orientation: landscape) {
+  .Panel__Meetup {
+    width: 100%;
+    height: auto;
+    margin-bottom: 80px;
+    padding: 0 80px 0 0;
+    box-sizing: border-box; } }
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .Panel__Meetup {
+    width: 100%;
+    height: auto;
+    margin-bottom: 80px;
+    padding: 0 100px 0 0;
+    box-sizing: border-box; } }
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .Panel__Meetup {
+    height: auto;
+    box-sizing: border-box;
+    width: 42%;
+    display: inline-block;
+    float: left;
+    margin: 20px 46px 20px 0px;
+    padding: 0; } }
+@media only screen and (min-width: 992px) {
+  .Panel__Meetup {
+    width: 337px;
+    height: 100%;
+    padding: 160px 0 0 10%;
+    position: fixed;
+    top: 0px;
+    left: 130px;
+    bottom: 0px;
+    /* overrides */
+    margin: 0px;
+    float: none;
+    display: block;
+    box-sizing: initial; } }
+@media only screen and (min-width: 320px) {
+  .Panel__Schedule {
+    box-sizing: border-box;
+    overflow: auto;
+    padding: 0 25px; } }
+@media only screen and (min-width: 480px) and (orientation: portrait) {
+  .Panel__Schedule {
+    box-sizing: border-box;
+    overflow: auto;
+    padding: 0 60px; } }
+@media only screen and (min-width: 600px) and (orientation: landscape) {
+  .Panel__Schedule {
+    box-sizing: border-box;
+    overflow: auto;
+    padding: 0 80px; } }
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .Panel__Schedule {
+    box-sizing: border-box;
+    overflow: auto;
+    padding: 0 100px; } }
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .Panel__Schedule {
+    box-sizing: border-box;
+    overflow: auto;
+    width: 42%;
+    display: inline-block;
+    float: left;
+    margin: 20px 0px 20px 46px;
+    padding: 0; } }
+@media only screen and (min-width: 992px) {
+  .Panel__Schedule {
+    width: 480px;
+    height: auto;
+    margin: 0 0 0 57%;
+    padding: 160px 0 0 0;
+    box-sizing: border-box;
+    overflow: auto; } }
+.Panel__SponsorsAndSupporters {
+  margin: 100px 0; }
+
+.chandra {
+  width: 38px;
+  margin-bottom: 50px; }
+
+.credits {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 0.875em;
+  color: #AAAAAA;
+  margin-bottom: 50px; }
+  .credits a {
+    text-decoration: underline;
+    color: #AAAAAA; }
+    .credits a:hover {
+      color: #27AE60 !important; }
+
+/* Fonts Register */
+/* Text Style Helpers */
+/* Typography Helpers Methods */
+/* Reset Default Typeset. */
+body {
+  font-size: "16px";
+  line-height: 1.4; }
+
+/* Color Pallete */
+/* Pallete helper methods.*/
+.Meetup {
+  text-align: right; }
+  .Meetup__Name {
+    font-family: "Lato";
+    font-weight: 300;
+    font-size: 25px;
+    margin: 0 0 5px 0; }
+  .Meetup__Episode {
+    font-family: "Lato";
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.8px; }
+  .Meetup__Date {
+    font-family: "Lato";
+    font-weight: 900;
+    font-size: 42px;
+    line-height: 54px;
+    margin-top: 40px;
+    display: block; }
+  .Meetup__Time {
+    margin-top: 10px;
+    padding: 8px 16px;
+    display: inline-table;
+    font-family: "Lato";
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0.86px;
+    background-color: #000000;
+    color: #FFFFFF; }
+    .Meetup__Time--thin {
+      font-weight: 300; }
+  .Meetup__Venue {
+    margin-top: 20px;
+    font-family: "Lato";
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px; }
+  .Meetup__Address {
+    color: #808080;
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px; }
+  .Meetup__Ornament {
+    margin-top: 40px;
+    width: 80px; }
+
+/* Fonts Register */
+/* Text Style Helpers */
+/* Typography Helpers Methods */
+/* Reset Default Typeset. */
+body {
+  font-size: "16px";
+  line-height: 1.4; }
+
+/* Color Pallete */
+/* Pallete helper methods.*/
+.Sessions .Session {
+  margin-top: 80px; }
+  .Sessions .Session:first-child {
+    margin: 0; }
+
+.Session__Number {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 2px;
+  text-transform: uppercase; }
+.Session__Splitter {
+  border: 0;
+  border-bottom: 3px solid;
+  border-color: #000000; }
+.Session__Title {
+  margin-top: 20px;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px; }
+.Session__Time {
+  margin-top: 5px;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px; }
+.Session__Description {
+  margin-top: 20px;
+  font-family: "georgia";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px; }
+.Session__Speaker {
+  margin-top: 25px; }
+
+/* Fonts Register */
+/* Text Style Helpers */
+/* Typography Helpers Methods */
+/* Reset Default Typeset. */
+body {
+  font-size: "16px";
+  line-height: 1.4; }
+
+/* Color Pallete */
+/* Pallete helper methods.*/
+.Speaker {
+  overflow: hidden; }
+  .Speaker__Name {
+    width: auto;
+    margin: 0 0 0 130px;
+    font-family: "Lato";
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px; }
+  .Speaker__DesignationAndWorkplace {
+    margin: 2px 0 0 130px;
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #808080; }
+  .Speaker__ProfilePicture {
+    width: 100px;
+    height: 100px;
+    float: left; }
+
+/* Fonts Register */
+/* Text Style Helpers */
+/* Typography Helpers Methods */
+/* Reset Default Typeset. */
+body {
+  font-size: "16px";
+  line-height: 1.4; }
+
+/* Color Pallete */
+/* Pallete helper methods.*/
+.SponsorsAndSupporters__Heading {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  float: left; }
+.SponsorsAndSupporters__Splitter {
+  margin: 30px 0;
+  border: 0;
+  border-bottom: 3px solid;
+  border-color: #000000; }
+
+.Sponsors {
+  margin-left: 150px; }
+
+.Sponsor {
+  margin-bottom: 20px; }
+  .Sponsor__Logo {
+    width: 125px; }
+
+.Supporters {
+  margin-left: 150px; }
+
+.Supporter {
+  margin-bottom: 20px; }
+  .Supporter__Logo {
+    width: 125px; }

@@ -1,11 +1,11 @@
 # [KTM.JS](http://developers-nepal.github.io/ktmjs)
-### Kathmandu Javascript user group.
+### Kathmandu Javascript user group. [![Build Status](https://travis-ci.org/developers-nepal/ktmjs.svg?branch=master)](https://travis-ci.org/developers-nepal/ktmjs)
 
 >Try to be a rainbow in someone's cloud. - Maya Angelou
 
 
 ## Admin Panel
-- schedule an upcoming meetup, 
+- schedule an upcoming meetup,
 - add speakers, sponsors and organizations info
 - add post-meetup documents, presentations and images (for contribution)
 
@@ -16,7 +16,7 @@ fork our ktmjs repository.
 $ git clone git@github.com:[your-github-id]/ktmjs.git
 $ cd site-admin
 $ npm install
-$ node ktm.js 
+$ node ktm.js
 ```
 
 
@@ -36,7 +36,7 @@ $ node ktm.js
 - make a Pull Request
 
 ## Publishing a meetup
-Follow these steps to publish a meetup. 
+Follow these steps to publish a meetup.
 
 ```
 1. fork our ktmjs repository
@@ -45,8 +45,8 @@ Follow these steps to publish a meetup.
 	$ git clone git@github.com:[your-github-id]/ktmjs.git
 	$ cd site-admin
 	$ npm install
-	$ node ktm.js 
-	
+	$ node ktm.js
+
 	/* it opens a browser, you can also open it in any browser on http://localhost:3000/meetups */
 
 2. add meetup information
@@ -56,9 +56,9 @@ Follow these steps to publish a meetup.
 
 3. commit your changes
 	- git add  
-	- git commit 
+	- git commit
 	- git push origin master
-	
+
 4. copy css file to dist folder
 	$ cp assets/site/css/index.css dist/css/
 
@@ -66,22 +66,22 @@ Follow these steps to publish a meetup.
 	- rename upcoming meetup as index.html
 
 6. deploy to gh-pages
-	$ npm run deploy 
+	$ merge your branch to master it will automatically deploy  
 ```
 
 ## Admin directory structure
 ```
-/assets 
+/assets
   /admin/images/people 			: people images which are refrenced in website
-  /admin/images/companies 		: organization images which are refrenced in website 
+  /admin/images/companies 		: organization images which are refrenced in website
   /admin/css					: css for admin interface
   /admin/js						: js for admin interface
-  
+
   /site/css						: css for site
   /site/images					: images for site
 /db 							: database location
 /routes 						: express js routes for meetups, people ...
-/templates 
+/templates
 	/admin 						: admin templates
 	/site 						: site templates
 db.js 							: has database instance
@@ -95,3 +95,4 @@ package.json 					: npm file
 - [@parewa-ranjit](https://github.com/parewa-ranjit)
 - [@prashishh](https://github.com/prashishh)
 - [@rabishah](https://github.com/rabishah)
+- [@sumn2u](https://github.com/sumn2u)

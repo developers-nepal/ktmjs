@@ -19,6 +19,7 @@ server.use(bodyParser.json());                            // to support JSON-enc
 server.use(express.static(__dirname + '/assets'));
 
 /* routes */
+server.use('/', require('./routes/meetups.js'));
 server.use('/companies', require('./routes/companies.js'));
 server.use('/meetups', require('./routes/meetups.js'));
 server.use('/people', require('./routes/people.js'));
