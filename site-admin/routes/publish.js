@@ -23,6 +23,10 @@ function _publish(episodes) {
     fs.writeFileSync(path.join(__dirname, '../dist/' + episode.date.replace(/\s+/g, '_') + '.html'), htmlTemplate, 'utf8', function(err) {
       if (err) throw err;
     });
+    // make a next index.html file too which ovrides the fingerprinitng
+    fs.writeFileSync(path.join(__dirname, '../dist/index.html'), htmlTemplate, 'utf8', function(err) {
+      if (err) throw err;
+    });
   });
 }
 
