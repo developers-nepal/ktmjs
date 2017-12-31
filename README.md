@@ -1,5 +1,5 @@
 # [KTM.JS](http://developers-nepal.github.io/ktmjs)
-### Kathmandu Javascript user group.
+### Kathmandu Javascript user group. [![Build Status](https://travis-ci.org/developers-nepal/ktmjs.svg?branch=master)](https://travis-ci.org/developers-nepal/ktmjs)
 
 >Try to be a rainbow in someone's cloud. - Maya Angelou
 
