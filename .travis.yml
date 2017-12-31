@@ -10,7 +10,7 @@ cache:
   directories:
   - node_modules
 
-before_script:
+script:
   - cp -rf site-admin/assets/site/css/index.css site-admin/dist/css/
 
 deploy:
