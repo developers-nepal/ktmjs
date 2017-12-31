@@ -11,7 +11,8 @@ before_script:
   - cp -rf site-admin/assets/site/css/index.css site-admin/dist/css/
 
 script:
-  - npm run deploy
+  - cd site-admin && npm run deploy
+
 
 deploy:
   provider: pages
