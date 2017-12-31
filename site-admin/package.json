@@ -1,10 +1,9 @@
 {
   "name": "ktmjs",
   "version": "1.0.0",
-  "description": "a community of javascript developers in Kathmandu.",
+  "description": "A community of javascript developers in Kathmandu.",
   "main": "ktm.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "git-directory-deploy --directory dist --branch gh-pages"
   },
   "keywords": [
