@@ -11,7 +11,14 @@ router.get('/', function(req, res) {
   });
 });
 
-router.get('/form', function(req, res) {
+router.get('/delete/:id', function (req, res) {
+  let personId = req.params.id;
+  db.people.remove({ "_id": personId }, {}, function (error) {
+    res.redirect('/people');
+  })
+});
+
+router.get('/form', function (req, res) {
   res.render('admin/people');
 });
 
