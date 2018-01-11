@@ -22,6 +22,7 @@
     "open": "0.0.5"
   },
   "dependencies": {
+    "fs": "0.0.1-security",
     "handlebars": "^4.0.3",
     "moment": "^2.10.6",
     "multer": "^1.0.6",
