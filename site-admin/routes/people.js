@@ -2,8 +2,6 @@
 
 var express = require('express'),
   router = express.Router();
-
-var path = require('path');
 var db = require('../db.js')();
 var fs = require('fs');
 
@@ -28,7 +26,7 @@ router.get('/delete/:id', function (req, res) {
                 console.log(feedback);
               })
             }
-          })
+                    })
         }
       });
     }
