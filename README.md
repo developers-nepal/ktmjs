@@ -84,9 +84,12 @@ ktm.js 							: has express js configurations and server instance (main file)
 package.json 					: npm file
 ```
 ## Contributions
+- [@rabishah](https://github.com/rabishah)
+- [@sumn2u](https://github.com/sumn2u)
+
+## Contributions
 - [@jaisonjustus](https://github.com/jaisonjustus)
 - [@parewa-punit](https://github.com/parewa-punit)
 - [@parewa-ranjit](https://github.com/parewa-ranjit)
 - [@prashishh](https://github.com/prashishh)
-- [@rabishah](https://github.com/rabishah)
-- [@sumn2u](https://github.com/sumn2u)
+- [@developerPratik](https://github.com/developerPratik )
