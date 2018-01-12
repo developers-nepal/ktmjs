@@ -25,6 +25,9 @@
           <img class="Speaker__ProfilePicture" src="admin/images/companies/{{file.filename}}" alt="profile picture">
           <h2 class="Speaker__Name">{{info.name}}</h2>
           <p class="Speaker__DesignationAndWorkplace">{{info.website}}</p>
+          <div class="Speaker__Actions">
+            <a href='/companies/delete/{{_id}}' class="Button Button--Danger">Remove</a>
+          </div>
         </li>
         {{~/each}}
       </ol>
