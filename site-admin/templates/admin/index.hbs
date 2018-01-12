@@ -27,6 +27,9 @@
           <time class="Meta__Time">{{startsAtHr}}:{{startsAtMin}}{{startsAtAMPM}} - {{endsAtHr}}:{{endsAtMin}}{{endsAtAMPM}}</time>
           <p class="Meta__Venue">{{venue.organisation}}</p>
           <p class="Meta__Venue-address">{{venue.addr_line1}}, {{venue.addr_line2}}</p>
+          <div class="Speaker__Actions">
+            <a href='/meetups/delete/{{_id}}' class="Button Button--Danger">Remove</a>
+          </div>
         </section>
 
         <section class="Slice__Details">
@@ -60,6 +63,7 @@
           </p>
         </section>
         <div class="Slice__Ornament"></div>
+
       </li>
       {{~/each}}
     </ol>
