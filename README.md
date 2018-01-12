@@ -83,7 +83,7 @@ utils.js 						: has utility functions
 ktm.js 							: has express js configurations and server instance (main file)
 package.json 					: npm file
 ```
-## Contributions
+## Maintainers
 - [@rabishah](https://github.com/rabishah)
 - [@sumn2u](https://github.com/sumn2u)
 
