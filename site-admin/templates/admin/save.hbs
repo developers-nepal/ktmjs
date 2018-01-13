@@ -9,6 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="/admin/js/jquery.tokeninput.js"></script>
     <link rel="stylesheet" type="text/css" href="/admin/css/token-input.css" />
+
+    </style>
   </head>
 
   <body>
@@ -41,7 +43,8 @@
         <h2 class="Form__Subtitle">Venue Details</h2>
 
         <label for="venue" class="Form__Label">Organization Name</label>
-        <input type="text" name="venue[organisation]" class="Form__TextInput"/>
+        <input type="text" id="pac-s" name="venue[organisation]" class="Form__TextInput controls"/>
+        <input type="hidden" name="placeId" id="place-id" class="Form__TextInput controls"/>
 
         <label for="address_1" class="Form__Label">Organization Address 1</label>
         <input type="text" name="venue[addr_line1]" class="Form__TextInput"/>
@@ -77,6 +80,10 @@
           <button type="submit" class="Button Button--Success">Save</button>
           <button class="Button Button--Danger">Cancel</button>
         </section>
+
+       <!-- <div id="map-section" style="display:none">
+              <div id="map"></div>
+       </div> -->
 
       </form>
     </section>
@@ -125,6 +132,38 @@
           $("#speakers-" + window.Index.Session).tokenInput(people);
         });
       }
+    </script>
+    <script>
+
+      // This sample uses the Place Autocomplete widget to allow the user to search
+      // for and select a place. The sample then displays an info window containing
+      // the place ID and other information about the place that the user has
+      // selected.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initMap() {
+
+
+        var input = document.getElementById('pac-s');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+        var place = autocomplete.getPlace();
+
+        autocomplete.addListener('place_changed', function() {
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            return;
+          }
+          document.getElementById('place-id').value=place.place_id;
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbIG9-2ikPEcdKz5PQ4KHpQs847J5jDJ0&libraries=places&callback=initMap"
+        async defer>
+
     </script>
   </body>
 </html>
