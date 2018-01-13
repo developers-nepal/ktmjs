@@ -27,6 +27,10 @@ function _publish(episodes) {
     fs.writeFileSync(path.join(__dirname, '../dist/index.html'), htmlTemplate, 'utf8', function(err) {
       if (err) throw err;
     });
+    fs.copyFile('map.html', path.join(__dirname, '../dist/map.html'), (err) => {
+        if (err) throw err;
+        console.log('source.txt was copied to destination.txt');
+    });
   });
 }
 
@@ -68,7 +72,7 @@ router.get('/', function(req, res) {
         });
 
         _publish(docs);
-        res.send('done');
+        res.redirect('/meetups');
       });
     });
   });
