@@ -1,4 +1,4 @@
-# [KTM.JS](http://developers-nepal.github.io/ktmjs)
+# [KTM.JS](http://developers-nepal.github.io/ktmjs) 
 ### Kathmandu Javascript user group. [![Build Status](https://travis-ci.org/developers-nepal/ktmjs.svg?branch=master)](https://travis-ci.org/developers-nepal/ktmjs) [![GitHub issues](https://img.shields.io/github/issues/developers-nepal/ktmjs.svg)](https://github.com/developers-nepal/ktmjs/issues) [![GitHub forks](https://img.shields.io/github/forks/developers-nepal/ktmjs.svg)](https://github.com/developers-nepal/ktmjs/network) [![GitHub stars](https://img.shields.io/github/stars/developers-nepal/ktmjs.svg)](https://github.com/developers-nepal/ktmjs/stargazers) [![GitHub license](https://img.shields.io/github/license/developers-nepal/ktmjs.svg)](https://github.com/developers-nepal/ktmjs/blob/develop/LICENSE) [![Twitter](https://img.shields.io/twitter/url/https/github.com/developers-nepal/ktmjs.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fdevelopers-nepal%2Fktmjs)
 
 >Try to be a rainbow in someone's cloud. - Maya Angelou
@@ -92,4 +92,4 @@ package.json 					: npm file
 - [@parewa-punit](https://github.com/parewa-punit)
 - [@parewa-ranjit](https://github.com/parewa-ranjit)
 - [@prashishh](https://github.com/prashishh)
-- [@developerPratik](https://github.com/developerPratik )
+- [@developerPratik](https://github.com/developerPratik)
