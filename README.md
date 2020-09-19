@@ -1,4 +1,4 @@
-# [KTM.JS](http://developers-nepal.github.io/ktmjs) 
+# [KTM.JS](http://developers-nepal.github.io/ktmjs)
 ### Kathmandu Javascript user group. [![Build Status](https://travis-ci.org/developers-nepal/ktmjs.svg?branch=master)](https://travis-ci.org/developers-nepal/ktmjs) [![GitHub issues](https://img.shields.io/github/issues/developers-nepal/ktmjs.svg)](https://github.com/developers-nepal/ktmjs/issues) [![GitHub forks](https://img.shields.io/github/forks/developers-nepal/ktmjs.svg)](https://github.com/developers-nepal/ktmjs/network) [![GitHub stars](https://img.shields.io/github/stars/developers-nepal/ktmjs.svg)](https://github.com/developers-nepal/ktmjs/stargazers) [![GitHub license](https://img.shields.io/github/license/developers-nepal/ktmjs.svg)](https://github.com/developers-nepal/ktmjs/blob/develop/LICENSE) [![Twitter](https://img.shields.io/twitter/url/https/github.com/developers-nepal/ktmjs.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fdevelopers-nepal%2Fktmjs)
 
 >Try to be a rainbow in someone's cloud. - Maya Angelou
@@ -10,9 +10,11 @@
 - add post-meetup documents, presentations and images (for contribution)
 
 #### How do i run admin panel?
-```
 fork our ktmjs repository.
 
+> Requires Node ~v10
+
+```bash
 $ git clone git@github.com:[your-github-id]/ktmjs.git
 $ cd site-admin
 $ npm install
@@ -26,19 +28,23 @@ Please refer issues (marked as community responsibility) for contribution.
 
 - fork our ktmjs repository.
 - run the admin interface
-```
+
+> Requires Node ~v10
+
+```bash
 $ git@github.com:[your-github-id]/ktmjs.git
 $ cd site-admin
 $ npm install
 $ node ktm.js
 ```
+
 - develop / code / fix the issues
 - make a Pull Request
 
 ## Publishing a meetup
 Follow these steps to publish a meetup.
 
-```
+```bash
 1. fork our ktmjs repository
 
 2. run admin panel
@@ -55,7 +61,7 @@ Follow these steps to publish a meetup.
 	- click on publish button
 
 3. commit your changes
-	- git add  
+	- git add
 	- git commit
 	- git push origin develop
 

@@ -4,7 +4,11 @@
   "description": "A community of javascript developers in Kathmandu.",
   "main": "ktm.js",
   "scripts": {
-    "deploy": "git-directory-deploy --directory dist --branch gh-pages"
+    "deploy": "git-directory-deploy --directory dist --branch gh-pages",
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
   },
   "keywords": [
     "meetup",
@@ -19,10 +23,11 @@
     "express": "^4.13.3",
     "express-handlebars": "^2.0.1",
     "git-directory-deploy": "^1.2.1",
-    "open": "0.0.5"
+    "open": "6.0.0"
   },
   "dependencies": {
     "fs": "0.0.1-security",
+    "graceful-fs": "^4.2.4",
     "handlebars": "^4.0.3",
     "moment": "^2.10.6",
     "multer": "^1.0.6",
