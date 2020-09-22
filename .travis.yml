@@ -1,22 +1,17 @@
 sudo: required
 dist: trusty
 language: node_js
-
 node_js:
-  # LTS version
-  - "14.4.0"
-
+- 14.4.0
 cache:
   directories:
   - node_modules
-
 script:
-  - cp -rf site-admin/assets/site/css/index.css site-admin/dist/css/
-
+- cp -rf site-admin/assets/site/css/index.css site-admin/dist/css/
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $github_token
+  github_token: "$github_token"
   local_dir: site-admin/dist
   on:
     branch: master
