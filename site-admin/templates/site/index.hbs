@@ -86,6 +86,7 @@
           {{~/each}}
         </ol>
 
+        {{#if sponsors.length > 0  }}
         <div class="Panel__SponsorsAndSupporters">
           <h2 class="SponsorsAndSupporters__Heading">Sponsors</h2>
           <ol class="Sponsors">
@@ -101,9 +102,9 @@
             {{~/each}}
           </ol>
         </div>
+        {{/if}}
 
         <img class="chandra" src="{{URL}}/assets/site/images/chandra.png" alt="chandra logo" />
-        <p class="credits">crafted by, <a href="http://www.27ae60.com/" target="_blank">27AE60</a></p>
       </div>
     </div>
   </div>
