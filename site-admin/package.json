@@ -21,7 +21,7 @@
   "devDependencies": {
     "body-parser": "^1.14.0",
     "express": "^4.13.3",
-    "express-handlebars": "^2.0.1",
+    "express-handlebars": "^5.3.1",
     "git-directory-deploy": "^1.2.1",
     "open": "6.0.0"
   },
