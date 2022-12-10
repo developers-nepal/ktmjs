@@ -20,7 +20,7 @@
   "license": "ISC",
   "devDependencies": {
     "body-parser": "^1.14.0",
-    "express": "^4.13.3",
+    "express": "^4.17.3",
     "express-handlebars": "^2.0.1",
     "git-directory-deploy": "^1.2.1",
     "open": "6.0.0"
