@@ -20,6 +20,8 @@
   "license": "ISC",
   "devDependencies": {
     "body-parser": "^1.14.0",
+    "cypress": "^12.14.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "express": "^4.13.3",
     "express-handlebars": "^2.0.1",
     "git-directory-deploy": "^1.2.1",
@@ -32,5 +34,9 @@
     "moment": "^2.10.6",
     "multer": "^1.0.6",
     "nedb": "^1.2.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "step_definitions": "cypress/**/"
   }
 }

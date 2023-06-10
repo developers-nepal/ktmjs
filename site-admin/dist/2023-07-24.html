@@ -11,7 +11,7 @@
   <meta itemprop="name" content="KTM.JS | Kathmandu Javscript User Group">
   <meta itemprop="description" content="KTM JS is a community of JavaScript developers in Kathmandu. To subscribe to our events, join
   the meetup group on meetup.com/KathmanduJS">
-  <meta itemprop="image" content="{{URL}}/assets/site/images/logo.png">
+  <meta itemprop="image" content="https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/site/images/logo.png">
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
@@ -19,91 +19,77 @@
   <meta name="twitter:title" content="KTM.JS | Kathmandu Javscript User Group">
   <meta name="twitter:description" content="KTM JS is a community of JavaScript developers in Kathmandu. To subscribe to our events, join
   the meetup group on meetup.com/KathmanduJS">
-  <meta name="twitter:image" content="{{URL}}/assets/site/images/logo_120X120.png">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/site/images/logo_120X120.png">
 
   <!-- Open Graph data -->
   <meta property="og:title" content="KTM JS user group. Meetups, People and Community."/>
   <meta property="og:type" content="article" />
   <meta property="og:url" content="http://developers-nepal.github.io/ktmjs" />
-  <meta property="og:image" content="{{URL}}/assets/site/images/logo.png" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/site/images/logo.png" />
   <meta property="og:description" content="KTM JS is a community of JavaScript developers in Kathmandu.We aim to share
   knowledge and expertise in. Javascript and related technologies through regular meetups, workshops and discussions."/>
   <meta property="og:site_name" content="Kathmandu JS" />
   <meta property="fb:admins" content="443642025803350" />
 
-  <link rel="shortcut icon" href="{{URL}}/assets/site/favicon/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="{{URL}}/assets/site/favicon/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/site/favicon/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/site/favicon/favicon.ico" type="image/x-icon">
   <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'/>
   <link rel="stylesheet" href="css/index.css" type="text/css"/>
 </head>
 <body>
     <div class="Panel__Navigation">
-      <img class="logo" src="{{URL}}/assets/site/images/logo.png" alt="Kathmandu JS User Group Logo" />
+      <img class="logo" src="https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/site/images/logo.png" alt="Kathmandu JS User Group Logo" />
     </div>
 
     <div class="Panel__Meetup">
       <div class="Meetup">
         <h1 class="Meetup__Name">Kathmandu Javascript Meetup</h1>
-        <p class="Meetup__Episode">/Episode {{episode}}, {{year}}</p>
+        <p class="Meetup__Episode">/Episode 03, 2023</p>
 
-        <date class="Meetup__Date">{{month}} {{day}}</date>
+        <date class="Meetup__Date">July 24th</date>
         <date class="Meetup__Time">
-        {{startsAtHr}}<span class="Meetup__Time--thin">:{{startsAtMin}}{{startsAtAMPM}}</span>
-         - {{endsAtHr}}<span class="Meetup__Time--thin">:{{endsAtMin}}{{endsAtAMPM}}</span>
+        11<span class="Meetup__Time--thin">:00am</span>
+         - 01<span class="Meetup__Time--thin">:00am</span>
         </date>
 
-        <h2 class="Meetup__Venue"> <a target="_blank"  href="map.html?place={{placeId}}">{{venue.organisation}}</a></h2>
-        <p class="Meetup__Address">{{venue.addr_line1}}<br/>{{venue.addr_line2}}</p>
+        <h2 class="Meetup__Venue"> <a target="_blank"  href="map.html?place=">ABC Inc.</a></h2>
+        <p class="Meetup__Address">789 Oak St, City, State, Country<br/></p>
 
-        <img class="Meetup__Ornament" src="{{URL}}/assets/site/images/flower.png" alt="flower"/>
+        <img class="Meetup__Ornament" src="https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/site/images/flower.png" alt="flower"/>
       </div>
     </div>
 
       <div class="Panel__Schedule">
         <ol class="Sessions">
-          {{#each session}}
           <li class="Session">
-            <h3 class="Session__Number">session #{{index}}</h3>
+            <h3 class="Session__Number">session #1</h3>
             <hr class="Session__Splitter"/>
 
-            <h2 class="Session__Title">{{title}}</h2>
-            <p class="Session__Time">@ {{time}}</p>
+            <h2 class="Session__Title">Awesome Title</h2>
+            <p class="Session__Time">@ 11:00am</p>
 
             <p class="Session__description">
-              {{description}}
+              This is an awesome session
             </p>
 
             <ol class="Speakers Session__Speaker">
-              {{#each speakers}}
               <li class="Speaker">
-                <img class="Speaker__ProfilePicture" src="{{../../URL}}/{{file.path}}" alt="profile picture"/>
-                <h2 class="Speaker__Name">{{info.name}}</h2>
-                <p class="Speaker__DesignationAndWorkplace">{{info.designation}} at {{info.organization}}</p>
-              </li>
-              {{~/each}}
-            </ol>
-          </li>
-          {{~/each}}
-        </ol>
+                <img class="Speaker__ProfilePicture" src="https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/admin/images/people/image-1686371797295.jpeg" alt="profile picture"/>
+                <h2 class="Speaker__Name">Emily Brown</h2>
+                <p class="Speaker__DesignationAndWorkplace">Data Scientist at Acme Co.</p>
+              </li>            </ol>
+          </li>        </ol>
 
-        {{#if sponsors}}
         <div class="Panel__SponsorsAndSupporters">
           <h2 class="SponsorsAndSupporters__Heading">Sponsors</h2>
           <ol class="Sponsors">
-            {{#each sponsors}}
-            <li class="Sponsor"><img class="Sponsor__Logo" src="{{../URL}}/{{file.path}}" alt="company 1" /></li>
-            {{~/each}}
-            <hr class="SponsorsAndSupporters__Splitter"/>
+            <li class="Sponsor"><img class="Sponsor__Logo" src="https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/admin/images/companies/image-1686374617267.jpeg" alt="company 1" /></li>            <hr class="SponsorsAndSupporters__Splitter"/>
           <h2 class="SponsorsAndSupporters__Heading">Supporters</h2>
           <ol class="Supporters">
-            {{#each supporters}}
-            <li class="Supporter"><img class="Supporter__Logo" src="{{../URL}}/{{file.path}}" alt="company 2" /></li>
-            {{~/each}}
-          </ol>
+            <li class="Supporter"><img class="Supporter__Logo" src="https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/admin/images/companies/image-1686374617267.jpeg" alt="company 2" /></li>          </ol>
         </div>
-        {{/if}}
 
-        <img class="chandra" src="{{URL}}/assets/site/images/chandra.png" alt="chandra logo" />
+        <img class="chandra" src="https://raw.githubusercontent.com/developers-nepal/ktmjs/master/site-admin/assets/site/images/chandra.png" alt="chandra logo" />
       </div>
     </div>
   </div>
