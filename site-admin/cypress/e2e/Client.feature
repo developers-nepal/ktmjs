@@ -1,5 +1,6 @@
 Feature: Client page
   Scenario: visiting the Client page
+  
     Given I am on the "clientURL"
     Then session number "session #1" should be visible
     Then meetup date "September 27th" should be present
