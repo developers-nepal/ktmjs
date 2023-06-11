@@ -9,4 +9,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Run client test
-        run: cd site-admin && yarn && cypress run --spec cypress/e2e/Client.feature
+        run: cd site-admin && yarn && npx cypress run --spec cypress/e2e/Client.feature
