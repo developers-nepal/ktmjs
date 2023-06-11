@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Install Cypress 📥
+        run: npm i cypress@12.14.0
       - name: yarn run clientTest
         uses: cypress-io/github-action@v4
         with:
