@@ -11,4 +11,4 @@ jobs:
       - name: Install Cypress 📥
         run: npm i cypress@12.14.0
       - name: Run Client Test
-        run: cd site-admin && cypress run --spec cypress/e2e/Client.feature
+        run: cd site-admin && npx cypress run --spec cypress/e2e/Client.feature
