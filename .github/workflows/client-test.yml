@@ -8,9 +8,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Cypress 📥
-        run: npm i cypress@12.14.0
-      - name: Cypress run
-        uses: cypress-io/github-action@v4
-      - name: Run Client Test
-        run: cd site-admin && cypress run --spec cypress/e2e/Client.feature
+      - name: Navigate to admin directory
+        run: cd site-admin
+      - name: Install dependencies  📥
+        run: yarn
+      - name: Run client test
+        run: cypress run --spec cypress/e2e/Client.feature
