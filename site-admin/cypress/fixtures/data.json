@@ -1,0 +1,34 @@
+{
+  "person": {
+    "name": "Emily Brown",
+    "designation": "Data Scientist",
+    "organization": "Acme Co.",
+    "bio": "Creative thinker with a keen eye for detail. Enjoys collaborating with cross-functional teams to build exceptional products.",
+    "twitter": "https://twitter.com/example",
+    "facebook": "https://facebook.com/example",
+    "github": "https://github.com/example",
+    "imageURL": "fixtures/user.jpeg"
+  },
+  "company": {
+    "name": "ABC Inc.",
+    "address": "789 Oak St, City, State, Country",
+    "phone_number": "+71 223-4673",
+    "email": "info@abc.inc",
+    "about": "With years of experience, we provide high-quality services...",
+    "website": "https://www.abc.inc",
+    "logoURL": "fixtures/company.jpeg",
+    "twitter": "https://twitter.com/example",
+    "facebook": "https://facebook.com/example",
+    "github": "https://github.com/example"
+  },
+  "venue": {
+    "date": "2023-07-24",
+    "startsAt": "11:00",
+    "endsAt": "01:00"
+  },
+  "session": {
+    "title": "Awesome Title",
+    "time": "11:00",
+    "description": "This is an awesome session"
+  }
+}
