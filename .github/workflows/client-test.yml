@@ -8,9 +8,5 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Navigate to admin directory
-        run: cd site-admin
-      - name: Install dependencies  📥
-        run: yarn
       - name: Run client test
-        run: ls && pwd && cd site-admin && npx cypress run --spec cypress/e2e/Client.feature
+        run: cd site-admin && yarn && cypress run --spec cypress/e2e/Client.feature
