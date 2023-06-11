@@ -13,4 +13,4 @@ jobs:
       - name: Install dependencies  📥
         run: yarn
       - name: Run client test
-        run: ls && pwd && npx cypress run --spec cypress/e2e/Client.feature
+        run: ls && pwd && cd site-admin && npx cypress run --spec cypress/e2e/Client.feature
