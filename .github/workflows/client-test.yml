@@ -1,0 +1,12 @@
+name: Cypress Tests
+
+on: push
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run client test
+        run: cd site-admin && yarn && npx cypress run --spec cypress/e2e/Client.feature
